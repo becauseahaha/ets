@@ -315,27 +315,28 @@
                     <div class="delivery__text">Международные перевозки грузов включают в себя ряд особенностей, которые задают стандарты безопасности транспортировки грузов.</div>
                     <div class="delivery__hint">Некторые из ключевых аспектов, которые мы учитываем при перевозке:</div>
                     <div class="delivery__care-list">
-                        <button class="delivery__care-item">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Правила и нормативы" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
                             <span>Правила и нормативы</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
-                        <button class="delivery__care-item">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Упаковка груза" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
                             <span>Упаковка груза</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
-                        <button class="delivery__care-item">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="                            <span>Страхование</span>
+                            " data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
                             <span>Страхование</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
-                        <button class="delivery__care-item">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Безопасность на пути следования" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
                             <span>Безопасность на пути следования</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
-                        <button class="delivery__care-item">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Документация" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
                             <span>Документация</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
-                        <button class="delivery__care-item">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Отслеживание груза" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
                             <span>Отслеживание груза</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
@@ -344,12 +345,17 @@
                 <div class="delivery__vehicle">
                     <div class="delivery__vehicle-wrapper">
                         <div class="delivery__vehicle-list">
-                            <button class="delivery__vehicle-list-btn">Ж/Д транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
-                            <button class="delivery__vehicle-list-btn is_active">Авиатранспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
-                            <button class="delivery__vehicle-list-btn">Автотранспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
-                            <button class="delivery__vehicle-list-btn">Морской транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                            <button class="delivery__vehicle-list-btn js-vehicle-btn" data-target="vehicle-train">Ж/Д транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                            <button class="delivery__vehicle-list-btn js-vehicle-btn is-active" data-target="vehicle-plane">Авиатранспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                            <button class="delivery__vehicle-list-btn js-vehicle-btn" data-target="vehicle-truck">Автотранспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                            <button class="delivery__vehicle-list-btn js-vehicle-btn" data-target="vehicle-ship">Морской транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
                         </div>
-                        <div class="delivery__vehicle-image"><img src="./images/vehicle-plain@2x.png" class="delivery__vehicle-image-picture"></div>
+                        <div class="delivery__vehicle-image">
+                            <img src="./images/vehicle-train.png" srcset="./images/vehicle-train@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer" id="vehicle-train">
+                            <img src="./images/vehicle-plane.png" srcset="./images/vehicle-plane@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer is-active" id="vehicle-plane">
+                            <img src="./images/vehicle-truck.png" srcset="./images/vehicle-truck@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer" id="vehicle-truck">
+                            <img src="./images/vehicle-ship.png" srcset="./images/vehicle-ship@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer" id="vehicle-ship">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -390,10 +396,10 @@
 
         <div class="container">
             <div class="request">
-                <div class="request__form">
+                <div class="request__form request__form-2">
                     <div>
                         <h2 class="request__form-title">Оставьте заявку</h2>
-                        <div class="request__form-text request__form-row-40">Заполните общие данные для консультации менеджером. Мы свяжемся с вами для уточения всех деталей.</div>
+                        <div class="request__form-text">Заполните общие данные для консультации менеджером. Мы свяжемся с вами для уточения всех деталей.</div>
                         <div class="request__form-row">
                             <label>
                                 <div class="input-title">Тип груза<span class="input-title__required">*</span></div>
@@ -406,6 +412,20 @@
                             <button class="request__form-suggestions-btn">Запчасти</button>
                             <button class="request__form-suggestions-btn">Мебель</button>
                             <button class="request__form-suggestions-btn">Санкционные товары</button>
+                        </div>
+                        <div class="request__form-row-40 request__form-row-columns">
+                            <div>
+                                <label>
+                                    <div class="input-title">Объем<span class="input-title__required">*</span></div>
+                                    <input type="text" class="input">
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <div class="input-title">Вес, кг<span class="input-title__required">*</span></div>
+                                    <input type="text" class="input">
+                                </label>
+                            </div>
                         </div>
                         <div class="request__form-row">
                             <label>
@@ -421,7 +441,13 @@
                             </label>
                         </div>
                     </div>
-                    <button class="btn"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
+                    <div>
+                        <div>
+                            <button class="btn"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
+                            <input type="file" class="btn-file">
+                        </div>
+                        <div class="request__form-step"><b>01</b> / 02</div>
+                    </div>
                 </div>
                 <div class="request__image">
                     <picture>
@@ -497,9 +523,25 @@
         </div>
     </footer>
 
+    <div class="popup" id="popup-care-details">
+        <div class="popup-bottom">  
+            <div class="container">
+                <div class="popup__close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
+                <div class="popup__title">Упаковка груза</div>
+                <div class="popup__body">Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.</div>
+            </div>
+        </div>
+    </div>
+
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <defs>
-            <g id="icon-plus" fill="currentColor"><path d="M12.6665 7.33317H8.6665V3.33317C8.6665 3.15636 8.59627 2.98679 8.47124 2.86177C8.34622 2.73674 8.17665 2.6665 7.99984 2.6665C7.82303 2.6665 7.65346 2.73674 7.52843 2.86177C7.40341 2.98679 7.33317 3.15636 7.33317 3.33317V7.33317H3.33317C3.15636 7.33317 2.98679 7.40341 2.86177 7.52843C2.73674 7.65346 2.6665 7.82303 2.6665 7.99984C2.6665 8.17665 2.73674 8.34622 2.86177 8.47124C2.98679 8.59627 3.15636 8.6665 3.33317 8.6665H7.33317V12.6665C7.33317 12.8433 7.40341 13.0129 7.52843 13.1379C7.65346 13.2629 7.82303 13.3332 7.99984 13.3332C8.17665 13.3332 8.34622 13.2629 8.47124 13.1379C8.59627 13.0129 8.6665 12.8433 8.6665 12.6665V8.6665H12.6665C12.8433 8.6665 13.0129 8.59627 13.1379 8.47124C13.2629 8.34622 13.3332 8.17665 13.3332 7.99984C13.3332 7.82303 13.2629 7.65346 13.1379 7.52843C13.0129 7.40341 12.8433 7.33317 12.6665 7.33317Z" /></g>
+            <g id="icon-plus" fill="currentColor">
+                <path d="M12.6665 7.33317H8.6665V3.33317C8.6665 3.15636 8.59627 2.98679 8.47124 2.86177C8.34622 2.73674 8.17665 2.6665 7.99984 2.6665C7.82303 2.6665 7.65346 2.73674 7.52843 2.86177C7.40341 2.98679 7.33317 3.15636 7.33317 3.33317V7.33317H3.33317C3.15636 7.33317 2.98679 7.40341 2.86177 7.52843C2.73674 7.65346 2.6665 7.82303 2.6665 7.99984C2.6665 8.17665 2.73674 8.34622 2.86177 8.47124C2.98679 8.59627 3.15636 8.6665 3.33317 8.6665H7.33317V12.6665C7.33317 12.8433 7.40341 13.0129 7.52843 13.1379C7.65346 13.2629 7.82303 13.3332 7.99984 13.3332C8.17665 13.3332 8.34622 13.2629 8.47124 13.1379C8.59627 13.0129 8.6665 12.8433 8.6665 12.6665V8.6665H12.6665C12.8433 8.6665 13.0129 8.59627 13.1379 8.47124C13.2629 8.34622 13.3332 8.17665 13.3332 7.99984C13.3332 7.82303 13.2629 7.65346 13.1379 7.52843C13.0129 7.40341 12.8433 7.33317 12.6665 7.33317Z" />
+            </g>
+            <g id="icon-cross" fill="currentColor">
+                <path d="M1.00164 0L18 17.2513L17.2917 17.9701L0.293373 0.718803L1.00164 0Z"/>
+                <path d="M0 17.2812L16.9984 0.0299245L17.7066 0.748728L0.708265 18L0 17.2812Z" />
+            </g>
         </defs>
     </svg>
 

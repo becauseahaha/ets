@@ -7,6 +7,7 @@
   box-sizing: border-box;
   color: inherit;
   background: unset;
+  font-family: inherit;
 }
 
 a {
@@ -185,6 +186,10 @@ main {
 }
 .btn-grey:hover .btn__arrow {
   background-image: url(./../images/icon-arrow.svg);
+}
+
+.icon-svg {
+  display: block;
 }
 
 .link {
@@ -418,6 +423,11 @@ main {
 .request__form-row {
   margin-bottom: 16px;
 }
+.request__form-row-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
 .request__form-row-40 {
   margin-bottom: 40px;
 }
@@ -436,6 +446,12 @@ main {
   font-weight: bold;
   line-height: 1.05;
   margin-bottom: 32px;
+}
+.request__form-text {
+  margin-bottom: 32px;
+}
+.request__form-2 .request__form-title {
+  margin-bottom: 20px;
 }
 .request__image {
   padding: 48px;
@@ -653,13 +669,20 @@ main {
   right: 0px;
   width: auto;
   height: 100%;
+  opacity: 0;
+  z-index: -1;
+  transition: 0.3s all;
+}
+.delivery__vehicle-image-picture.is-active {
+  z-index: 0;
+  opacity: 1;
 }
 .delivery__vehicle-list {
   position: absolute;
   display: flex;
   flex-direction: column;
   gap: 80px;
-  right: 478px;
+  right: 477px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -681,12 +704,15 @@ main {
   border-radius: 100%;
   background-color: var(--black);
 }
-.delivery__vehicle-list-btn.is_active {
+.delivery__vehicle-list-btn.is-active {
   right: -2px;
   color: var(--green);
   font-weight: bold;
 }
-.delivery__vehicle-list-btn.is_active .delivery__vehicle-list-btn-marker {
+.delivery__vehicle-list-btn.is-active:first-child, .delivery__vehicle-list-btn.is-active:last-child {
+  right: -44px;
+}
+.delivery__vehicle-list-btn.is-active .delivery__vehicle-list-btn-marker {
   background-color: var(--green);
   width: 12px;
   height: 12px;
@@ -888,6 +914,63 @@ main {
 .footer .container {
   display: flex;
   justify-content: space-between;
+}
+
+.popup-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background: var(--black);
+  z-index: 2;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 29, 45, 0.8);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.popup.is-shown {
+  opacity: 1;
+}
+.popup .container {
+  position: relative;
+}
+.popup__close {
+  position: absolute;
+  right: 24px;
+  top: -24px;
+  width: 24px;
+  height: 24px;
+}
+.popup__close .icon-svg {
+  width: 24px;
+  height: 24px;
+}
+.popup__title {
+  font-size: 2.875rem;
+  line-height: 1.05;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.popup-bottom {
+  position: absolute;
+  bottom: 0;
+  min-height: 300px;
+  z-index: 3;
+  width: 100%;
+  background-color: #fff;
+  padding: 48px 0;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,6 +7,7 @@
     box-sizing: border-box
     color: inherit
     background: unset
+    font-family: inherit
 
 a
     text-decoration: none
@@ -153,7 +154,8 @@ main
         .btn__arrow
             background-image: url(./../images/icon-arrow.svg)
             
-
+.icon-svg
+    display: block
 
 .link
     text-decoration: none
@@ -351,6 +353,10 @@ main
         justify-content: space-between
         &-row
             margin-bottom: 16px
+            &-columns
+                display: grid
+                grid-template-columns: 1fr 1fr
+                gap: 32px
         &-row-40
             margin-bottom: 40px
         &-suggestions
@@ -366,6 +372,14 @@ main
             font-weight: bold
             line-height: 1.05
             margin-bottom: 32px
+        &-text
+            margin-bottom: 32px
+
+    &__form-2
+        .request__form
+            &-title
+                margin-bottom: 20px
+
     &__image
         padding: 48px
         &-picture
@@ -551,12 +565,18 @@ main
                 right: 0px
                 width: auto
                 height: 100%
+                opacity: 0
+                z-index: -1
+                transition: 0.3s all
+                &.is-active
+                    z-index: 0
+                    opacity: 1
         &-list
             position: absolute
             display: flex
             flex-direction: column
             gap: 80px
-            right: 478px
+            right: 477px
             top: 50%        
             transform: translateY(-50%)
             &-btn
@@ -575,10 +595,13 @@ main
                     height: 8px
                     border-radius: 100%
                     background-color: var(--black)
-                &.is_active
+                &.is-active
                     right: -2px
                     color: var(--green)
                     font-weight: bold
+                    &:first-child,
+                    &:last-child
+                        right: -44px
                     .delivery__vehicle-list-btn
                         &-marker
                             background-color: var(--green)
@@ -765,5 +788,56 @@ main
     .container
         display: flex
         justify-content: space-between
+
+
+.popup-bg
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    opacity: 0.8
+    background: var(--black)
+    z-index: 2
+
+.popup
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(15, 29, 45, 0.8)
+    z-index: 2
+    opacity: 0
+    transition: opacity 0.3s
+    &.is-shown
+        opacity: 1
+    .container
+        position: relative
+    &__close
+        position: absolute
+        right: 24px
+        top: -24px
+        width: 24px
+        height: 24px
+        .icon-svg
+            width: 24px
+            height: 24px
+    &__title
+        font-size: 2.875rem
+        line-height: 1.05
+        font-weight: bold
+        margin-bottom: 20px
+
+.popup-bottom
+    position: absolute
+    bottom: 0
+    min-height: 300px
+    // position: sticky
+    z-index: 3
+    width: 100%
+    background-color: #fff
+    padding: 48px 0
 
 @import media.sass

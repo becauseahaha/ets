@@ -1,13 +1,3 @@
-document.querySelectorAll('.js-popup-show').forEach((el) => {
-    el.addEventListener('click', (e) => {
-        e.preventDefault();
-        showPopup(el.dataset.target);
-    })
-})
-document.querySelectorAll('.js-popup-hide').forEach((el) => {
-    el.addEventListener('click', hidePopup.bind(el));
-})
-
 function hidePopup(id) {
 
     let popup = document.getElementById(id) ? document.getElementById(id) : this.closest('.popup');
@@ -68,6 +58,24 @@ const map = () => {
     })
 }
 
+const vehicles = () => {
+    const buttons = document.querySelectorAll('.js-vehicle-btn');
+    const layers  = document.querySelectorAll('.js-vehicle-layer');
+    buttons.forEach((btn) => {
+        btn.addEventListener('click', function() {
+            buttons.forEach((el) => {
+                el.classList.remove('is-active')
+            })
+            layers.forEach((el) => {
+                el.classList.remove('is-active')
+            })
+            this.classList.add('is-active')
+            document.getElementById(this.dataset.target).classList.add('is-active');
+
+        })
+    })
+}
+
 const headerSlider = () => {
     const container = document.querySelector('.js-main-bgs-container');
     const slides = container.querySelectorAll('.js-main-bg');
@@ -88,7 +96,60 @@ const headerSlider = () => {
     setInterval(changeSlides, 5000);
 }
 
+function hidePopup(id) {
+
+    let popup = document.getElementById(id) ? document.getElementById(id) : this.closest('.popup');
+
+    if (popup.dataset.processing && popup.dataset.processing == true) return;
+    popup.dataset.processing = true;
+
+    if (popup.classList.contains('is-shown')) {
+        popup.addEventListener('transitionend', (e) => {
+            popup.style.display = 'none';
+            popup.dataset.processing = false;
+        }, {
+            once: true
+        })
+        popup.classList.remove('is-shown');
+    } 
+
+}
+function showPopup(id, params) {
+
+
+    let popup = document.getElementById(id);
+
+    if (popup.dataset.processing && popup.dataset.processing == true) return;
+    popup.dataset.processing = true;
+
+    if (id == 'popup-care-details') {
+        popup.querySelector('.popup__title').innerHTML = params.title;
+        popup.querySelector('.popup__body').innerHTML  = params.body;
+    }
+
+    if (popup.classList.contains('is-shown') == false) {
+        popup.style.display = 'block';
+        setTimeout(function() {
+            popup.classList.add('is-shown')
+            popup.dataset.processing = false;
+        }, 1)
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
     map();
+    vehicles();
     headerSlider();
+
+    document.querySelectorAll('.js-popup-hide').forEach((el) => {
+        el.addEventListener('click', hidePopup.bind(el));
+    })
+
+    document.querySelectorAll('.js-popup-show').forEach((el) => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            showPopup(el.dataset.target, el.dataset);
+        })
+    })
 })

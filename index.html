@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ETS</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header__logo">
+                <button><img src="./images/logo.svg"></button>
+            </div>
+            <div class="header__contacts">
+                <a href="#" class="header__contacts-phone link">+7 495 283-39-12</a>
+                <span class="header__contacts-border"></span>
+                <button class="header__contacts-popup">Связаться с нами</button>
+            </div>
+            <div class="header__burger">
+                <button class="btn-burger"><span class="btn-burger__icon"></span></button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main">
+            <div class="main__bgs js-main-bgs-container">
+                <div class="main__bg main__bg-1 js-main-bg"></div>
+                <div class="main__bg main__bg-2 js-main-bg"></div>
+                <div class="main__bg main__bg-3 js-main-bg"></div>
+            </div>
+            <div class="main__body">
+                <div class="container">
+                    <h1 class="main__title">
+                        Доставка <img src="./images/main-icons.png" srcset="./images/main-icons@2x.png 2x" class="main__title-icons"> грузов из Европы с таможенным оформлением
+                    </h1>
+                    <div class="main__content-wrapper">
+                        <div class="main__benefits">
+                            <div class="main__benefits-item">Помощь в оплате поставщикам</div>
+                            <div class="main__benefits-item">Маршрут в условиях санкций</div>
+                            <div class="main__benefits-item">Собственный транспорт</div>
+                            <div class="main__benefits-item">Страхование</div>
+                            <div class="main__benefits-item">Паралельный импорт</div>
+                            <div class="main__benefits-item">Быстрая и надежная доставка сборных грузов</div>
+                        </div>
+                        <div class="main__request">
+                            <div class="card">
+                                <div class="card__header">
+                                    14 <small>дней</small>
+                                </div>
+                                <div class="card__body">Срок доставки «в среднем» по классическому маршруту <button><img src="./images/icon-question.svg"></button></div>
+                            </div>
+                            <div class="card">
+                                <div class="card__header">
+                                    5 <small>кг</small>
+                                </div>
+                                <div class="card__body">Минимальный вес для заказа перевозки груза</div>
+                            </div>
+                            <button class="btn"><span>Оставить заявку</span><span class="btn__arrow"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="request">
+                <div class="request__form">
+                    <div>
+                        <h2 class="request__form-title">Оставьте заявку на поиск товара — мы найдём и поможем доставить</h2>
+                        <div class="request__form-row">
+                            <label>
+                                <div class="input-title">Тип груза<span class="input-title__required">*</span></div>
+                                <input type="text" class="input">
+                            </label>
+                        </div>
+                        <div class="request__form-row-40 request__form-suggestions">
+                            <span>Например:</span>
+                            <button class="request__form-suggestions-btn">Электроника</button>
+                            <button class="request__form-suggestions-btn">Запчасти</button>
+                            <button class="request__form-suggestions-btn">Мебель</button>
+                            <button class="request__form-suggestions-btn">Санкционные товары</button>
+                        </div>
+                        <div class="request__form-row">
+                            <label>
+                                <div class="input-title">Страна забора</div>
+                                <select name="" class="select">
+                                    <option value=""></option>
+                                    <option value="">Китай</option>
+                                    <option value="">Китай</option>
+                                    <option value="">Китай</option>
+                                    <option value="">Китай</option>
+                                    <option value="">Китай</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
+                </div>
+                <div class="request__image">
+                    <picture>
+                        <source srcset="./images/request-1-tablet.jpg, ./images/request-1-tablet@2x.jpg 1.5x" media="(min-width: 481px) & (max-width: 1023px)" />
+                        <source srcset="./images/request-1@2x.jpg 1.5x" />
+                        <img src="./images/request-1.jpg" class="request__image-picture">
+                    </picture>
+                </div>
+                <div class="request__slider">
+                    <div class="request__slider-title">Доставляем любые типы товаров</div>
+                    <ul class="request__slider-container list-slider">
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-1.svg"></div>
+                            <div>Санкционные товары</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-2.svg"></div>
+                            <div>Товары двойного назначения</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-3.svg"></div>
+                            <div>Товары для компаний находящихся под санкциями США и ЕС</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-4.svg"></div>
+                            <div>Нефтегазовое оборудование</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-5.svg"></div>
+                            <div>Легкая промышленность</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-1.svg"></div>
+                            <div>Санкционные товары</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-2.svg"></div>
+                            <div>Товары двойного назначения</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-3.svg"></div>
+                            <div>Товары для компаний находящихся под санкциями США и ЕС</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-4.svg"></div>
+                            <div>Нефтегазовое оборудование</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-5.svg"></div>
+                            <div>Легкая промышленность</div>
+                        </li>
+                    </ul>
+                    <ul class="request__slider-container list-slider list-slider--opposite">
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-1.svg"></div>
+                            <div>Санкционные товары</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-2.svg"></div>
+                            <div>Товары двойного назначения</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-3.svg"></div>
+                            <div>Товары для компаний находящихся под санкциями США и ЕС</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-4.svg"></div>
+                            <div>Нефтегазовое оборудование</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-5.svg"></div>
+                            <div>Легкая промышленность</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-1.svg"></div>
+                            <div>Санкционные товары</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-2.svg"></div>
+                            <div>Товары двойного назначения</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-3.svg"></div>
+                            <div>Товары для компаний находящихся под санкциями США и ЕС</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-4.svg"></div>
+                            <div>Нефтегазовое оборудование</div>
+                        </li>
+                        <li class="list-slider__item">
+                            <div class="list-slider__item-icon"><img src="./images/list-icon-5.svg"></div>
+                            <div>Легкая промышленность</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="map">
+            <div class="container">
+                <div class="map__hint">Доставляем со всех частей света:</div>
+                <div class="map__countries">
+                    <button class="map__btn-country js-map-btn" data-target="map-asia">Азия</button>
+                    <button class="map__btn-country js-map-btn" data-target="map-mid-east">Ближний Восток</button>
+                    <button class="map__btn-country js-map-btn" data-target="map-europe">Европа</button>
+                    <button class="map__btn-country js-map-btn" data-target="map-north-america">Северная Америка</button>
+                    <button class="map__btn-country js-map-btn" data-target="map-south-america">Южная Америка</button>
+                    <button class="map__btn-country js-map-btn" data-target="map-africa">Африка</button>
+                    <button class="map__btn-country js-map-btn" data-target="map-australia">Австралия</button>
+                </div>
+                <div class="map__globe">
+                    <img src="./images/map-north-america.png" class="map__picture-country js-map-layer" id="map-north-america">
+                    <img src="./images/map-south-america.png" class="map__picture-country js-map-layer" id="map-south-america">
+                    <img src="./images/map-africa.png" class="map__picture-country js-map-layer" id="map-africa">
+                    <img src="./images/map-europe.png" class="map__picture-country js-map-layer" id="map-europe">
+                    <img src="./images/map-asia.png" class="map__picture-country js-map-layer" id="map-asia">
+                    <img src="./images/map-australia.png" class="map__picture-country js-map-layer" id="map-australia">
+                    <img src="./images/map-mid-east.png" class="map__picture-country js-map-layer" id="map-mid-east">
+                    <img src="./images/map-countries.png" class="map__picture-countries-titles">
+                    <img src="./images/map.png" class="map__picture">
+                    <!-- <div class="map__globe-country-text map__globe-country-na">Северная америка</div>
+                    <div class="map__globe-country-text map__globe-country-sa">Южная америка</div>
+                    <div class="map__globe-country-text map__globe-country-eu">Европа</div>
+                    <div class="map__globe-country-text map__globe-country-af">Африка</div>
+                    <div class="map__globe-country-text map__globe-country-me">Ближний восток</div>
+                    <div class="map__globe-country-text map__globe-country-au">Австралия</div>
+                    <div class="map__globe-country-text map__globe-country-as">Азия</div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="solutions">
+            <div class="container">
+                <div class="solutions__title">Предлагаем комплексное решение</div>
+                <div class="solutions__cards">
+                    <div class="solution-card">
+                        <div>
+                            <div class="solution-card__title">Подбор поставщика</div>
+                            <div class="solution-card__body">Находим и выбираем лучшего поставщика, соответствующего вашим требованиям, обеспечивая согласование с вашим техническим заданием.</div>
+                        </div>
+                        <div class="solution-card__image">
+                            <picture>
+                                <source srcset="./images/solution-1@2x.jpg 1.5x" />
+                                <img src="./images/solution-1.jpg" class="solution-card__image-picture">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div>
+                            <div class="solution-card__title">Согласование заявки</div>
+                            <div class="solution-card__body">Занимаемся формальностями и процедурами, утверждая заявки для надёжной и беззамедлительной доставки товаров.</div>
+                        </div>
+                        <div class="solution-card__image">
+                            <picture>
+                                <source srcset="./images/solution-2@2x.jpg 1.5x" />
+                                <img src="./images/solution-2.jpg" class="solution-card__image-picture">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div>
+                            <div class="solution-card__title">Помощь в оплате товара</div>
+                            <div class="solution-card__body">Предоставляем поддержку при оплате товаров, упрощая процесс и обеспечивая безопасные финансовые транзакции.</div>
+                        </div>
+                        <div class="solution-card__image">
+                            <picture>
+                                <source srcset="./images/solution-3@2x.jpg 1.5x" />
+                                <img src="./images/solution-3.jpg" class="solution-card__image-picture">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div>
+                            <div class="solution-card__title">Формирование пакета документов</div>
+                            <div class="solution-card__body">Заботимся о документообороте, предоставляя полный пакет необходимых документов для вашей операции.</div>
+                        </div>
+                        <div class="solution-card__image">
+                            <picture>
+                                <source srcset="./images/solution-4@2x.jpg 1.5x" />
+                                <img src="./images/solution-4.jpg" class="solution-card__image-picture">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div>
+                            <div class="solution-card__title">Доставка груза</div>
+                            <div class="solution-card__body">Обеспечиваем надёжную доставку с использованием собственного транспорта и проверенных маршрутов, гарантируя сохранность вашего груза.</div>
+                        </div>
+                        <div class="solution-card__image">
+                            <picture>
+                                <source srcset="./images/solution-5@2x.jpg 1.5x" />
+                                <img src="./images/solution-5.jpg" class="solution-card__image-picture">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div>
+                            <div class="solution-card__title">Таможенное оформление</div>
+                            <div class="solution-card__body">Обеспечиваем все необходимые таможенные процедуры и сопровождение, чтобы ваш груз прошёл через таможню без задержек.</div>
+                        </div>
+                        <div class="solution-card__image">
+                            <picture>
+                                <source srcset="./images/solution-6@2x.jpg 1.5x" />
+                                <img src="./images/solution-6.jpg" class="solution-card__image-picture">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="delivery">
+            <div class="container">
+                <div class="delivery__content">
+                    <div class="delivery__title">Доставляем грузы всеми видами транспорта</div>
+                    <div class="delivery__text">Международные перевозки грузов включают в себя ряд особенностей, которые задают стандарты безопасности транспортировки грузов.</div>
+                    <div class="delivery__hint">Некторые из ключевых аспектов, которые мы учитываем при перевозке:</div>
+                    <div class="delivery__care-list">
+                        <button class="delivery__care-item">
+                            <span>Правила и нормативы</span>
+                            <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
+                        </button>
+                        <button class="delivery__care-item">
+                            <span>Упаковка груза</span>
+                            <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
+                        </button>
+                        <button class="delivery__care-item">
+                            <span>Страхование</span>
+                            <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
+                        </button>
+                        <button class="delivery__care-item">
+                            <span>Безопасность на пути следования</span>
+                            <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
+                        </button>
+                        <button class="delivery__care-item">
+                            <span>Документация</span>
+                            <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
+                        </button>
+                        <button class="delivery__care-item">
+                            <span>Отслеживание груза</span>
+                            <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="delivery__vehicle">
+                    <div class="delivery__vehicle-wrapper">
+                        <div class="delivery__vehicle-list">
+                            <button class="delivery__vehicle-list-btn">Ж/Д транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                            <button class="delivery__vehicle-list-btn is_active">Авиатранспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                            <button class="delivery__vehicle-list-btn">Автотранспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                            <button class="delivery__vehicle-list-btn">Морской транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                        </div>
+                        <div class="delivery__vehicle-image"><img src="./images/vehicle-plain@2x.png" class="delivery__vehicle-image-picture"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about">
+            <div class="container">
+                <div class="about__body">
+                    <div>
+                        <div class="about__motto">Enjoy The Speed of Logistics</div>
+                        <div class="about__title">О компании</div>
+                        <div class="about__text">Наша команда решает любые задачи, связанные с оплатой, доставкой и таможенным оформлением груза.
+                            Мы предлагаем оптимизированные комплексно-логистические услуги по оформлению и доставке товаров в Россию из Европы, Америки, Турции, Китая и других стран.</div>
+                    </div>
+                    <div class="about__info-box">
+                        <div class="card about__card--first">
+                            <div class="card__header">
+                                15 <small>лет</small>
+                            </div>
+                            <div class="card__body">Средний стаж работы в логистике у наших специалистов</div>
+                        </div>
+                        <div class="card">
+                            <div class="card__header">
+                                <img src="./images/icon-shield.svg">
+                            </div>
+                            <div class="card__body">Приспособились к санкциям и ограничениям</div>
+                        </div>
+                        <div class="card">
+                            <div class="card__header">
+                                <img src="./images/icon-path.svg">
+                            </div>
+                            <div class="card__body">Комплексный пакет услуг — от поиска и приобретения товара до таможенного оформления</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="request">
+                <div class="request__form">
+                    <div>
+                        <h2 class="request__form-title">Оставьте заявку</h2>
+                        <div class="request__form-text request__form-row-40">Заполните общие данные для консультации менеджером. Мы свяжемся с вами для уточения всех деталей.</div>
+                        <div class="request__form-row">
+                            <label>
+                                <div class="input-title">Тип груза<span class="input-title__required">*</span></div>
+                                <input type="text" class="input">
+                            </label>
+                        </div>
+                        <div class="request__form-row-40 request__form-suggestions">
+                            <span>Например:</span>
+                            <button class="request__form-suggestions-btn">Электроника</button>
+                            <button class="request__form-suggestions-btn">Запчасти</button>
+                            <button class="request__form-suggestions-btn">Мебель</button>
+                            <button class="request__form-suggestions-btn">Санкционные товары</button>
+                        </div>
+                        <div class="request__form-row">
+                            <label>
+                                <div class="input-title">Страна забора</div>
+                                <select name="" class="select">
+                                    <option value=""></option>
+                                    <option value="">Китай</option>
+                                    <option value="">Китай</option>
+                                    <option value="">Китай</option>
+                                    <option value="">Китай</option>
+                                    <option value="">Китай</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
+                </div>
+                <div class="request__image">
+                    <picture>
+                        <source srcset="./images/request-2-tablet.jpg, ./images/request-2-tablet@2x.jpg 1.5x" media="(min-width: 481px) & (max-width: 1023px)" />
+                        <source srcset="./images/request-2@2x.jpg 1.5x" />
+                        <img src="./images/request-2.jpg" class="request__image-picture">
+                    </picture>
+                </div>
+            </div>
+        </div>
+
+        <div class="contacts">
+            <div class="container">
+                <div class="contacts__title">Контакты</div>
+                <div class="contacts__cards">
+                    <div class="contacts__card contacts-card">
+                        <div>
+                            <div class="contacts-card__city">Турция</div>
+                            <div class="contacts-card__text">OBA MAH. 225 SK. SUMMER PARK D BLOK NO: 8 D İÇ KAPI NO: 22 ALANYA/ ANTALYA</div>
+                        </div>
+                        <div>
+                            <a href="https://maps.app.goo.gl/TZbWEsNW4pqWNE9e6" target="_blank" class="contacts-card__map-link btn btn-grey"><span>Посмотреть на карте</span><span class="btn__arrow"></span></a>
+                            <div class="contacts-card__image">
+                                <picture>
+                                    <source srcset="./images/contacts-turkey@2x.jpg 1.5x" />
+                                    <img src="./images/contacts-turkey.jpg" class="contacts-card__image-picture">
+                                </picture>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contacts__card contacts-card">
+                        <div>
+                            <div class="contacts-card__city">ОАЭ</div>
+                            <div class="contacts-card__text">P6-ELOB OFFICE E2-113G-30б, HAMRIYAH FREE ZONE SHARJAH, UAE</div>
+                            <div class="contacts-card__text">+905 315-596-764</div>
+                            <div class="contacts-card__text">cengiz@allworldtrading.com</div>
+                        </div>
+                        <div>
+                            <a href="https://maps.app.goo.gl/wm3n3TC5oQVFYbmk7" target="_blank" class="contacts-card__map-link btn btn-grey"><span>Посмотреть на карте</span><span class="btn__arrow"></span></a>
+                            <div class="contacts-card__image">
+                                <picture>
+                                    <source srcset="./images/contacts-emirates@2x.jpg 1.5x" />
+                                    <img src="./images/contacts-emirates.jpg" class="contacts-card__image-picture">
+                                </picture>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contacts__card contacts-card">
+                        <div>
+                            <div class="contacts-card__city">Россия</div>
+                            <div class="contacts-card__text">г. Москва, Багратионовский проезд, 7/20В</div>
+                            <div class="contacts-card__text">+7 495 16-16-115</div>
+                        </div>
+                        <div>
+                            <a href="https://maps.app.goo.gl/ctKLvs5SzaiUVGnZ8" target="_blank" class="contacts-card__map-link btn btn-grey"><span>Посмотреть на карте</span><span class="btn__arrow"></span></a>
+                            <div class="contacts-card__image">
+                                <picture>
+                                    <source srcset="./images/contacts-russia@2x.jpg 1.5x" />
+                                    <img src="./images/contacts-russia.jpg" class="contacts-card__image-picture">
+                                </picture>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div>© 2023 ETS LLC. Все права защищены</div>
+            <div><a href="#" class="link">Политика конфиденциальности</a></div>
+        </div>
+    </footer>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <defs>
+            <g id="icon-plus" fill="currentColor"><path d="M12.6665 7.33317H8.6665V3.33317C8.6665 3.15636 8.59627 2.98679 8.47124 2.86177C8.34622 2.73674 8.17665 2.6665 7.99984 2.6665C7.82303 2.6665 7.65346 2.73674 7.52843 2.86177C7.40341 2.98679 7.33317 3.15636 7.33317 3.33317V7.33317H3.33317C3.15636 7.33317 2.98679 7.40341 2.86177 7.52843C2.73674 7.65346 2.6665 7.82303 2.6665 7.99984C2.6665 8.17665 2.73674 8.34622 2.86177 8.47124C2.98679 8.59627 3.15636 8.6665 3.33317 8.6665H7.33317V12.6665C7.33317 12.8433 7.40341 13.0129 7.52843 13.1379C7.65346 13.2629 7.82303 13.3332 7.99984 13.3332C8.17665 13.3332 8.34622 13.2629 8.47124 13.1379C8.59627 13.0129 8.6665 12.8433 8.6665 12.6665V8.6665H12.6665C12.8433 8.6665 13.0129 8.59627 13.1379 8.47124C13.2629 8.34622 13.3332 8.17665 13.3332 7.99984C13.3332 7.82303 13.2629 7.65346 13.1379 7.52843C13.0129 7.40341 12.8433 7.33317 12.6665 7.33317Z" /></g>
+        </defs>
+    </svg>
+
+    <script src="./scripts/main.js"></script>
+
+</body>
+</html>

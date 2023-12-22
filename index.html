@@ -12,12 +12,12 @@
         <div class="header__header">
             <div class="container">
                 <div class="header__logo">
-                    <button class="header__logo-picture"></button>
+                    <button class="header__logo-picture js-scroll-to" data-target="first-screen"></button>
                 </div>
                 <div class="header__contacts">
-                    <a href="#" class="header__contacts-phone link">+7 495 283-39-12</a>
+                    <a href="tel:+74952833912" class="header__contacts-phone link">+7 495 283-39-12</a>
                     <span class="header__contacts-border"></span>
-                    <button class="header__contacts-popup link">Связаться с нами</button>
+                    <button class="header__contacts-popup link js-popup-show" data-target="popup-contact-form">Связаться с нами</button>
                 </div>
                 <div class="header__burger">
                     <button class="btn-burger js-open-menu"><span class="btn-burger__icon"></span></button>
@@ -26,13 +26,13 @@
         </div>
         <div class="header__body container">
             <div class="header__nav">
-                <button class="header__nav-item js-scroll-to">Типы товаров</button>
-                <button class="header__nav-item js-scroll-to">Регионы работы</button>
-                <button class="header__nav-item js-scroll-to">Комплекс услуг</button>
-                <button class="header__nav-item js-scroll-to">Стандарты перевозки</button>
-                <button class="header__nav-item js-scroll-to">О компании</button>
-                <button class="header__nav-item js-scroll-to">Заявка</button>
-                <button class="header__nav-item js-scroll-to">Контакты</button>
+                <button class="header__nav-item js-scroll-to" data-target="block-types">Типы товаров</button>
+                <button class="header__nav-item js-scroll-to" data-target="block-map">Регионы работы</button>
+                <button class="header__nav-item js-scroll-to" data-target="block-solutions">Комплекс услуг</button>
+                <button class="header__nav-item js-scroll-to" data-target="block-delivery">Стандарты перевозки</button>
+                <button class="header__nav-item js-scroll-to" data-target="block-about">О компании</button>
+                <button class="header__nav-item js-scroll-to" data-target="block-request">Заявка</button>
+                <button class="header__nav-item js-scroll-to" data-target="block-contacts">Контакты</button>
             </div>
             <div class="contacts__cards">
                 <div class="contacts__card contacts-card">
@@ -60,7 +60,7 @@
         </div>
     </header>
     <main>
-        <div class="main">
+        <div class="main" id="first-screen">
             <div class="main__bgs js-main-bgs-container">
                 <div class="main__bg main__bg-1 js-main-bg"></div>
                 <div class="main__bg main__bg-2 js-main-bg"></div>
@@ -93,14 +93,14 @@
                                 </div>
                                 <div class="card__body">Минимальный вес для заказа перевозки груза</div>
                             </div>
-                            <button class="btn"><span>Оставить заявку</span><span class="btn__arrow"></span></button>
+                            <button class="btn js-scroll-to" data-target="block-request"><span>Оставить заявку</span><span class="btn__arrow"></span></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="container">
+        <div class="container" id="block-types">
             <div class="request">
                 <div class="request__form">
                     <div>
@@ -108,15 +108,15 @@
                         <div class="request__form-row">
                             <label>
                                 <div class="input-title">Тип груза<span class="input-title__required">*</span></div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="input-1">
                             </label>
                         </div>
                         <div class="request__form-row-40 request__form-suggestions">
                             <span>Например:</span>
-                            <button class="request__form-suggestions-btn">Электроника</button>
-                            <button class="request__form-suggestions-btn">Запчасти</button>
-                            <button class="request__form-suggestions-btn">Мебель</button>
-                            <button class="request__form-suggestions-btn">Санкционные товары</button>
+                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-1">Электроника</button>
+                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-1">Запчасти</button>
+                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-1">Мебель</button>
+                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-1">Санкционные товары</button>
                         </div>
                         <div class="request__form-row">
                             <label>
@@ -231,7 +231,7 @@
             </div>
         </div>
 
-        <div class="map">
+        <div class="map" id="block-map">
             <div class="container">
                 <div class="map__hint">Доставляем со всех частей света:</div>
                 <div class="map__countries">
@@ -264,7 +264,7 @@
             </div>
         </div>
 
-        <div class="solutions">
+        <div class="solutions" id="block-solutions">
             <div class="container">
                 <div class="solutions__title">Предлагаем комплексное решение</div>
                 <div class="solutions__cards">
@@ -344,7 +344,7 @@
             </div>
         </div>
 
-        <div class="delivery">
+        <div class="delivery" id="block-delivery">
             <div class="container">
                 <div class="delivery__content">
                     <div class="delivery__title">Доставляем грузы всеми видами транспорта</div>
@@ -397,7 +397,7 @@
             </div>
         </div>
 
-        <div class="about">
+        <div class="about" id="block-about">
             <div class="container">
                 <div class="about__body">
                     <div>
@@ -431,7 +431,7 @@
         </div>
 
         <div class="container">
-            <div class="request">
+            <div class="request" id="block-request">
                 <div class="request__form request__form-2">
                     <div>
                         <h2 class="request__form-title">Оставьте заявку</h2>
@@ -439,15 +439,15 @@
                         <div class="request__form-row">
                             <label>
                                 <div class="input-title">Тип груза<span class="input-title__required">*</span></div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="input-2">
                             </label>
                         </div>
                         <div class="request__form-row-40 request__form-suggestions">
                             <span>Например:</span>
-                            <button class="request__form-suggestions-btn">Электроника</button>
-                            <button class="request__form-suggestions-btn">Запчасти</button>
-                            <button class="request__form-suggestions-btn">Мебель</button>
-                            <button class="request__form-suggestions-btn">Санкционные товары</button>
+                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-2">Электроника</button>
+                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-2">Запчасти</button>
+                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-2">Мебель</button>
+                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-2">Санкционные товары</button>
                         </div>
                         <div class="request__form-row-40 request__form-row-columns">
                             <div>
@@ -477,10 +477,10 @@
                             </label>
                         </div>
                     </div>
-                    <div>
-                        <div>
+                    <div class="request__form-controls-wrapper">
+                        <div class="request__form-controls">
                             <button class="btn"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
-                            <input type="file" class="btn-file">
+                            <label class="btn-file"><input type="file"><svg class="icon-svg"><use href="#icon-file"></use></svg></label>
                         </div>
                         <div class="request__form-step"><b>01</b> / 02</div>
                     </div>
@@ -495,7 +495,7 @@
             </div>
         </div>
 
-        <div class="contacts">
+        <div class="contacts" id="block-contacts">
             <div class="container">
                 <div class="contacts__title">Контакты</div>
                 <div class="contacts__cards">
@@ -555,7 +555,7 @@
     <footer class="footer">
         <div class="container">
             <div>© 2023 ETS LLC. Все права защищены</div>
-            <div><a href="#" class="link">Политика конфиденциальности</a></div>
+            <div><button class="link js-popup-show" data-target="popup-policy">Политика конфиденциальности</button></div>
         </div>
     </footer>
 
@@ -569,6 +569,120 @@
         </div>
     </div>
 
+    <div class="popup" id="popup-contact-form">
+        <div class="popup-side"> 
+            <div class="title">Связаться с нами</div>
+            <div class="form-row">
+                <label>
+                    <div class="input-title">Имя</div>
+                    <input type="text" class="input">
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <div class="input-title">Телефон<span class="input-title__required">*</span></div>
+                    <input type="text" class="input">
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <div class="input-title">Сообщение<span class="input-title__required">*</span></div>
+                    <textarea class="input" rows="5"></textarea>
+                </label>
+            </div>
+            <div class="contact-form__hint">Отправляя данную форму вы соглашаетесь с <button class="js-popup-show" data-target="popup-policy">политикой конфиденциальности</button></div>
+            <div class="contact-form__send">
+                <button class="btn"><span>Отправить</span><span class="btn__arrow"></span></button>
+            </div>
+        </div>
+        <div class="popup__side-close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
+    </div>
+
+    <div class="popup" id="popup-policy">
+        <div class="popup-side"> 
+            <div class="title">Политика<br>конфиденциальности</div>
+            <div class="subtitle">1. Общие положения</div>
+            <div class="list">
+                <div class="list__item">
+                    <div class="list__item-marker">1.1</div>
+                    <div class="list__item-body">Оператор осуществляет обработку персональных данных
+                        для следующих целей:</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">1.1.1</div>
+                    <div class="list__item-body">Для исполнения договора, стороной которого либо выгодоприобретателем или поручителем является субъект персональных данных;</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">1.1.2</div>
+                    <div class="list__item-body">Для исполнения договора, стороной которого либо выгодоприобретателем или поручителем является субъект персональных данных;</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">1.1.3</div>
+                    <div class="list__item-body">Для достижения целей, предусмотренных международным договором Российской Федерации или законом, для осуществления и выполнения возложенных законодательством Российской Федерации на Оператора функций, полномочий и обязанностей.</div>
+                </div>
+            </div>
+            <div class="subtitle">2. Используемые термины и определения</div>
+            <div class="list">
+                <div class="list__item">
+                    <div class="list__item-marker">2.1</div>
+                    <div class="list__item-body">Персональные данные - любая информация, относящаяся прямо или косвенно к определенному или определяемому физическому лицу (субъекту персональных данных).</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">2.2</div>
+                    <div class="list__item-body">Оператор - физическое лицо, самостоятельно или совместно с другими лицами организующее и (или) осуществляющее обработку персональных данных, а также определяющее цели обработки персональных данных, состав персональных данных, подлежащих обработке, действия (операции), совершаемые с персональными данными.</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">2.3</div>
+                    <div class="list__item-body">Обработка персональных данных - любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств 
+                        с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных.</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">2.4</div>
+                    <div class="list__item-body">Предоставление персональных данных - действия, направленные 
+                        на раскрытие персональных данных определенному лицу 
+                        или определенному кругу лиц.</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">2.5</div>
+                    <div class="list__item-body">Уничтожение персональных данных - действия, в результате которых становится невозможным восстановить содержание персональных данных в информационной системе персональных данных и (или) 
+                        в результате которых уничтожаются материальные носители персональных данных.</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">2.6</div>
+                    <div class="list__item-body">Блокирование персональных данных - временное прекращение обработки персональных данных (за исключением случаев, если обработка необходима для уточнения персональных данных).</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">2.7</div>
+                    <div class="list__item-body">Пользователь – любое физическое лицо, которое находится на Сайте 
+                        и выполняет любые действия на нем, в том числе приобретает товары или получает услуги, заполняет форму обратной связи либо иным образом, вступающее в отношения с Оператором (электронная почта 
+                        и т.д.). Пользователь является субъектом персональных данных.</div>
+                </div>
+            </div>
+            <div class="subtitle">3. Цели обработки персональных данных</div>
+            <div class="list">
+                <div class="list__item">
+                    <div class="list__item-marker">3.1</div>
+                    <div class="list__item-body">Оператор осуществляет обработку персональных данных
+                        для следующих целей:</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">3.1.1</div>
+                    <div class="list__item-body">Для исполнения договора, стороной которого либо выгодоприобретателем или поручителем является субъект персональных данных;</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">3.1.2</div>
+                    <div class="list__item-body">Для исполнения договора, стороной которого либо выгодоприобретателем или поручителем является субъект персональных данных;</div>
+                </div>
+                <div class="list__item">
+                    <div class="list__item-marker">3.1.3</div>
+                    <div class="list__item-body">Для достижения целей, предусмотренных международным договором Российской Федерации или законом, для осуществления и выполнения возложенных законодательством Российской Федерации
+                        на Оператора функций, полномочий и обязанностей.</div>
+                </div>
+            </div>
+        </div>
+        <div class="popup__side-close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
+    </div>
+
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <defs>
             <g id="icon-plus" fill="currentColor">
@@ -577,6 +691,9 @@
             <g id="icon-cross" fill="currentColor">
                 <path d="M1.00164 0L18 17.2513L17.2917 17.9701L0.293373 0.718803L1.00164 0Z"/>
                 <path d="M0 17.2812L16.9984 0.0299245L17.7066 0.748728L0.708265 18L0 17.2812Z" />
+            </g>
+            <g id="icon-file" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 12C3 8.68629 5.78961 6 9.23077 6H16.6154C19.0369 6 21 7.89035 21 10.2222C21 12.5541 19.0369 14.4444 16.6154 14.4444H9.0989C7.69695 14.4444 6.56044 13.35 6.56044 12C6.56044 10.65 7.69695 9.55556 9.0989 9.55556H16.3516C16.734 9.55556 17.044 9.85403 17.044 10.2222C17.044 10.5904 16.734 10.8889 16.3516 10.8889H9.0989C8.46165 10.8889 7.94506 11.3864 7.94506 12C7.94506 12.6136 8.46165 13.1111 9.0989 13.1111H16.6154C18.2722 13.1111 19.6154 11.8177 19.6154 10.2222C19.6154 8.62673 18.2722 7.33333 16.6154 7.33333H9.23077C6.55431 7.33333 4.38462 9.42267 4.38462 12C4.38462 14.5773 6.55431 16.6667 9.23077 16.6667H16.3516C16.734 16.6667 17.044 16.9651 17.044 17.3333C17.044 17.7015 16.734 18 16.3516 18H9.23077C5.78961 18 3 15.3137 3 12Z" />
             </g>
         </defs>
     </svg>

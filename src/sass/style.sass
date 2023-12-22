@@ -68,6 +68,9 @@ main
     padding: 0 48px
     margin: 0 auto
 
+.form-row
+    margin-bottom: 40px
+
 .input,
 .select
     display: block
@@ -93,6 +96,25 @@ main
         font-size: 0.875rem
         margin-left: 4px
 
+.btn-file
+    position: relative
+    overflow: hidden
+    width: 60px
+    height: 60px
+    background-color: #fff
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 8px
+    transition: all 0.3s
+    cursor: pointer
+    input[type="file"]
+        position: absolute
+        left: -999px
+    .icon-svg
+        width: 24px
+        height: 24px
+
 .btn
     position: relative
     overflow: hidden
@@ -103,8 +125,9 @@ main
     text-transform: uppercase
     color: #fff
     display: flex
+    gap: 24px
     justify-content: space-between
-    padding: 18px 24px
+    padding: 17px 24px
     align-items: center
     border-radius: 8px
     transition: all 0.3s
@@ -163,6 +186,32 @@ main
     &:hover
         color: var(--green-dark)
 
+.list
+    display: flex
+    flex-direction: column
+    gap: 16px
+    margin-bottom: 48px
+    &__item
+        display: flex
+        gap: 12px
+        font-size: 1rem
+        &-marker
+            flex: 0 0 48px
+            color: var(--green-dark)
+        &-body
+
+.title
+    font-size: 2.875rem
+    font-weight: bold
+    line-height: 1.05
+    margin-bottom: 48px
+
+.subtitle
+    font-size: 2rem
+    font-weight: bold
+    line-height: 1.05
+    margin-bottom: 24px
+
 .card
     padding: 16px
     border-radius: 8px
@@ -196,6 +245,7 @@ main
     &__header
         height: 80px
         border-bottom: 1px solid rgba(255, 255, 255, 0.30)
+        flex-shrink: 0
         .container
             display: flex
             justify-content: space-between
@@ -249,12 +299,22 @@ main
         height: 100svh  
         z-index: 3
         .header__header
-            flex-shrink: 0
             border-color: #E6E6E6
         .header__body
             display: flex
         .btn-burger__icon
             background-image: url(./../images/icon-burger-close.svg)
+        .header__contacts-border
+            border-color: #E6E6E6
+        .header__logo-picture
+            background-image: url('./../images/logo-blue.svg')
+
+    &.is-fixed
+        position: fixed
+        background-color: #fff
+        color: var(--black)
+        z-index: 3
+        .header__header,
         .header__contacts-border
             border-color: #E6E6E6
         .header__logo-picture
@@ -400,6 +460,15 @@ main
         display: flex
         flex-direction: column
         justify-content: space-between
+        &-step
+            font-size: 1rem
+        &-controls-wrapper
+            display: flex
+            justify-content: space-between
+            align-items: center
+        &-controls
+            display: flex
+            gap: 12px
         &-row
             margin-bottom: 16px
             &-columns
@@ -839,15 +908,17 @@ main
         justify-content: space-between
 
 
-.popup-bg
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    opacity: 0.8
-    background: var(--black)
-    z-index: 2
+.contact-form
+    &__hint
+        color: rgba(15, 29, 45, 0.50)
+        font-size: 1rem
+        > button
+            text-decoration: underline
+            &:hover
+                text-decoration: none
+    &__send
+        margin-top: 48px
+
 
 .popup
     display: none
@@ -857,19 +928,30 @@ main
     width: 100%
     height: 100%
     background: rgba(15, 29, 45, 0.8)
-    z-index: 2
+    z-index: 4
     opacity: 0
     transition: opacity 0.3s
     &.is-shown
         opacity: 1
     .container
         position: relative
+    &__side-close
+        position: absolute
+        right: 24px
+        top: 24px
+        width: 24px
+        height: 24px
+        z-index: 5
+        .icon-svg
+            width: 24px
+            height: 24px
     &__close
         position: absolute
         right: 24px
         top: -24px
         width: 24px
         height: 24px
+        z-index: 4
         .icon-svg
             width: 24px
             height: 24px
@@ -883,10 +965,18 @@ main
     position: absolute
     bottom: 0
     min-height: 300px
-    // position: sticky
-    z-index: 3
     width: 100%
     background-color: #fff
     padding: 48px 0
+
+.popup-side
+    position: absolute
+    right: 0
+    top: 0
+    width: 50%
+    height: 100vh
+    overflow-y: auto
+    padding: 48px
+    background-color: #fff
 
 @import media.sass

@@ -154,11 +154,52 @@ function showPopup(id, params) {
     }
 }
 
+const fixedHeader = () => {
+    const firstScreenHeight = document.getElementById('first-screen').offsetHeight;
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > firstScreenHeight) {
+            document.getElementById('menu').classList.add('is-fixed');
+        } else {
+            document.getElementById('menu').classList.remove('is-fixed');
+        }
+    })
+}
+
+const clickToScroll = () => {
+    document.querySelectorAll('.js-scroll-to').forEach((el) => {
+        const scrollIntoViewWithOffset = (selector) => {
+            window.scrollTo({
+                behavior: "smooth",
+                top:
+                    document.querySelector(selector).getBoundingClientRect().top -
+                    document.body.getBoundingClientRect().top -
+                    document.querySelector('.header').offsetHeight - 
+                    20
+            });
+        };
+        el.addEventListener('click', () => {
+            hideMenu();
+            scrollIntoViewWithOffset('#'+el.dataset.target);
+        })
+    })
+}
+
+const suggestions = () => {
+    document.querySelectorAll('.js-suggestion').forEach((el) => {
+        el.addEventListener('click', () => {
+            document.getElementById( el.dataset.target ).value = el.innerText;
+        })
+    })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     map();
     vehicles();
     headerSlider();
+    fixedHeader();
+    clickToScroll();
+    suggestions();
 
     document.querySelectorAll('.js-open-menu').forEach((el) => {
         el.addEventListener('click', toggleMenu);

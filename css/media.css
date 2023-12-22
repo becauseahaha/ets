@@ -1,3 +1,44 @@
-
+@media (max-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .btn-burger {
+    right: -24px;
+  }
+  .header__header > .container {
+    position: relative;
+    justify-content: flex-end;
+  }
+  .header__logo {
+    position: absolute;
+    left: 24px;
+    height: 100%;
+  }
+  .main__body {
+    padding-top: 128px;
+  }
+  .main__title {
+    font-size: 3.25rem;
+    margin-bottom: 32px;
+  }
+  .main__title-icons {
+    height: 60px;
+  }
+  .main__content-wrapper {
+    flex-direction: column;
+  }
+  .main__benefits {
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    max-width: 480px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
 
 /*# sourceMappingURL=media.css.map */

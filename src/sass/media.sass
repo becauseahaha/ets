@@ -1,10 +1,44 @@
-
-@media (max-width: 1440px)
-
 @media (max-width: 1280px)
 
 @media (max-width: 1024px)
 
+    .container
+        max-width: 1024px
+        padding-left: 24px
+        padding-right: 24px
+
+    .btn-burger
+        right: -24px
+
+    .header
+        &__header
+            > .container
+                position: relative
+                justify-content: flex-end
+        &__logo
+            position: absolute
+            left: 24px
+            height: 100%
+
+    .main
+        &__body
+            padding-top: 128px
+        &__title
+            font-size: 3.25rem
+            margin-bottom: 32px 
+            &-icons
+                height: 60px
+        &__content-wrapper
+            flex-direction: column
+        &__benefits
+            justify-content: center
+
+
 @media (max-width: 768px)
 
 @media (max-width: 480px)
+    
+    .container
+        max-width: 480px
+        padding-left: 16px
+        padding-right: 16px

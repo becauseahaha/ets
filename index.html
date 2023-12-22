@@ -8,18 +8,54 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="container">
-            <div class="header__logo">
-                <button><img src="./images/logo.svg"></button>
+    <header class="header" id="menu">
+        <div class="header__header">
+            <div class="container">
+                <div class="header__logo">
+                    <button class="header__logo-picture"></button>
+                </div>
+                <div class="header__contacts">
+                    <a href="#" class="header__contacts-phone link">+7 495 283-39-12</a>
+                    <span class="header__contacts-border"></span>
+                    <button class="header__contacts-popup link">Связаться с нами</button>
+                </div>
+                <div class="header__burger">
+                    <button class="btn-burger js-open-menu"><span class="btn-burger__icon"></span></button>
+                </div>
             </div>
-            <div class="header__contacts">
-                <a href="#" class="header__contacts-phone link">+7 495 283-39-12</a>
-                <span class="header__contacts-border"></span>
-                <button class="header__contacts-popup">Связаться с нами</button>
+        </div>
+        <div class="header__body container">
+            <div class="header__nav">
+                <button class="header__nav-item js-scroll-to">Типы товаров</button>
+                <button class="header__nav-item js-scroll-to">Регионы работы</button>
+                <button class="header__nav-item js-scroll-to">Комплекс услуг</button>
+                <button class="header__nav-item js-scroll-to">Стандарты перевозки</button>
+                <button class="header__nav-item js-scroll-to">О компании</button>
+                <button class="header__nav-item js-scroll-to">Заявка</button>
+                <button class="header__nav-item js-scroll-to">Контакты</button>
             </div>
-            <div class="header__burger">
-                <button class="btn-burger"><span class="btn-burger__icon"></span></button>
+            <div class="contacts__cards">
+                <div class="contacts__card contacts-card">
+                    <div>
+                        <div class="contacts-card__city">Турция</div>
+                        <div class="contacts-card__text">OBA MAH. 225 SK. SUMMER PARK D BLOK NO: 8 D İÇ KAPI NO: 22 ALANYA/ ANTALYA</div>
+                    </div>
+                </div>
+                <div class="contacts__card contacts-card">
+                    <div>
+                        <div class="contacts-card__city">ОАЭ</div>
+                        <div class="contacts-card__text">P6-ELOB OFFICE E2-113G-30б, HAMRIYAH FREE ZONE SHARJAH, UAE</div>
+                        <div class="contacts-card__text">+905 315-596-764</div>
+                        <div class="contacts-card__text">cengiz@allworldtrading.com</div>
+                    </div>
+                </div>
+                <div class="contacts__card contacts-card">
+                    <div>
+                        <div class="contacts-card__city">Россия</div>
+                        <div class="contacts-card__text">г. Москва, Багратионовский проезд, 7/20В</div>
+                        <div class="contacts-card__text">+7 495 16-16-115</div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>

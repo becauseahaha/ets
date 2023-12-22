@@ -1,3 +1,20 @@
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    if (menu.classList.contains('is-active')) {
+        hideMenu();
+    } else {
+        showMenu();
+    }
+}
+function showMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.add('is-active');
+}
+function hideMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.remove('is-active');
+}
+
 function hidePopup(id) {
 
     let popup = document.getElementById(id) ? document.getElementById(id) : this.closest('.popup');
@@ -16,6 +33,7 @@ function hidePopup(id) {
     } 
 
 }
+
 function showPopup(id) {
 
     if (id != 'popup-menu') hidePopup('popup-menu')
@@ -142,6 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
     vehicles();
     headerSlider();
 
+    document.querySelectorAll('.js-open-menu').forEach((el) => {
+        el.addEventListener('click', toggleMenu);
+    })
+
     document.querySelectorAll('.js-popup-hide').forEach((el) => {
         el.addEventListener('click', hidePopup.bind(el));
     })
@@ -152,4 +174,5 @@ document.addEventListener('DOMContentLoaded', () => {
             showPopup(el.dataset.target, el.dataset);
         })
     })
+
 })

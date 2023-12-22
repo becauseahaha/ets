@@ -63,6 +63,7 @@ main
     gap: 140px
 
 .container
+    width: 100%
     max-width: 1440px
     padding: 0 48px
     margin: 0 auto
@@ -187,40 +188,88 @@ main
     top: 0
     left: 0
     width: 100%
-    padding-top: 32px
-    padding-bottom: 32px
     z-index: 1
     color: #fff
-    .container
-        display: flex
+    display: flex
+    flex-direction: column
+    transition: 0.3s all
+    &__header
+        height: 80px
+        border-bottom: 1px solid rgba(255, 255, 255, 0.30)
+        .container
+            display: flex
+            justify-content: space-between
+            align-items: stretch
+    &__body
+        display: none
+        padding-top: 48px
+        padding-bottom: 48px
+        flex-grow: 1
+        flex-direction: column
         justify-content: space-between
-        align-items: stretch
+        max-height: calc(100svh - 80px)
+        overflow-y: auto
+    &__nav
+        display: flex
+        flex-direction: column
+        margin-bottom: 48px
+        &-item
+            padding: 12px 0
+            border-bottom: 1px solid #E6E6E6
+            font-size: 2rem
+            line-height: 1.05
+            font-weight: bold
+            text-align: center
+            &:hover
+                color: var(--green-dark)
+                border-color: var(--green-dark)
     &__logo
         display: flex
         justify-content: center
         align-items: center
+        &-picture
+            background: url('./../images/logo.svg') no-repeat center center/contain
+            width: 135px
+            height: 48px
     &__contacts
-        margin: 6px 0
         display: flex
         align-items: center
-        height: 48px
         &-border
             display: inline-block
             width: 1px
             height: 100%
-            // border-right: 1px solid rgba(255, 255, 255, 0.30)
+            border-right: 1px solid rgba(255, 255, 255, 0.30)
             margin: 0 24px
+
+    &.is-active
+        position: fixed
+        background-color: #fff
+        color: var(--black)
+        height: 100vh  
+        height: 100svh  
+        z-index: 3
+        .header__header
+            flex-shrink: 0
+            border-color: #E6E6E6
+        .header__body
+            display: flex
+        .btn-burger__icon
+            background-image: url(./../images/icon-burger-close.svg)
+        .header__contacts-border
+            border-color: #E6E6E6
+        .header__logo-picture
+            background-image: url('./../images/logo-blue.svg')
 
 .btn-burger
     position: relative
     overflow: hidden
     background-color: var(--green)
-    width: 60px
-    height: 60px
-    border-radius: 8px
+    width: 80px
+    height: 80px
     display: flex
     justify-content: center
     align-items: center
+    right: -48px
     &::after
         background: var(--green-dark)
         content: ''

@@ -11,6 +11,24 @@
     main
         gap: 100px
 
+    .sup-vertical
+        &-left
+            left: 12px
+        &-right
+            right: 12px
+        &-middle
+            display: none
+
+    .sup-horizontal
+        &-last
+            bottom: 12px
+        &-bottom
+            bottom: -12px
+        &-top
+            top: -12px
+        &-map
+            top: 58px
+
     .container
         padding-left: 24px
         padding-right: 24px
@@ -26,6 +44,11 @@
             position: absolute
             left: 24px
             height: 100%
+
+        &__logo,
+        &__contacts,
+        &__burger
+            width: auto
 
     .main
         display: flex
@@ -79,6 +102,7 @@
         &__countries
             overflow-x: auto
             scroll-snap-type: x mandatory
+            height: 43px
 
     .solutions
         padding-left: 24px
@@ -91,6 +115,8 @@
         .container
             grid-template-columns: 100%
             grid-template-rows: auto
+        &__vehicle-wrapper
+            left: -5%
 
     .about
         padding-top: 24px
@@ -139,6 +165,15 @@
     main
         gap: 60px
 
+    .sup-vertical
+        display: none
+
+    .sup-horizontal
+        display: none
+        &-map
+            display: block
+            top: 49px
+
     .container
         padding-left: 16px
         padding-right: 16px
@@ -174,6 +209,9 @@
                 display: grid
         &.is-active.is-fixed
             padding-bottom: 0
+        &.is-fixed
+            .sup-vertical
+                display: none
 
     .main
         &__body
@@ -273,6 +311,7 @@
         &__countries
             gap: 16px
             margin-bottom: 32px
+            height: 32px
         &__btn-country
             font-size: 1.125rem
             &.is-active
@@ -306,6 +345,7 @@
             padding-bottom: 82px
             background-size: 328px
             justify-content: center
+            left: unset
         &__vehicle-list
             display: none
         &__vehicle-list-mobile

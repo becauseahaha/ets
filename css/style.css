@@ -64,12 +64,57 @@ body {
   font-size: 1.125rem;
   line-height: 1.3;
   color: var(--black);
+  position: relative;
 }
 
 main {
   display: flex;
   flex-direction: column;
   gap: 140px;
+}
+
+.sup-vertical {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #E6E6E6;
+  z-index: -1;
+}
+.sup-vertical-left {
+  left: 25px;
+}
+.sup-vertical-right {
+  right: 25px;
+}
+.sup-vertical-middle {
+  right: 50%;
+  top: -140px;
+  bottom: -140px;
+  height: calc(100% + 280px);
+}
+
+.sup-horizontal {
+  position: absolute;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #E6E6E6;
+  z-index: -1;
+}
+.sup-horizontal-last {
+  bottom: 25px;
+}
+.sup-horizontal-bottom {
+  bottom: -25px;
+}
+.sup-horizontal-top {
+  top: -25px;
+}
+.sup-horizontal-map {
+  top: 70px;
 }
 
 .icon-svg {
@@ -351,8 +396,9 @@ main {
 }
 .header__logo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  width: 150px;
 }
 .header__logo-picture {
   background: url("./../images/logo.svg") no-repeat center center/contain;
@@ -371,6 +417,17 @@ main {
   height: 100%;
   border-right: 1px solid rgba(255, 255, 255, 0.3);
   margin: 0 24px;
+}
+.header__contacts > .link {
+  width: 150px;
+}
+.header__burger {
+  width: 150px;
+  display: flex;
+  justify-content: flex-end;
+}
+.header .sup-vertical {
+  display: none;
 }
 .header.is-active {
   position: fixed;
@@ -394,6 +451,9 @@ main {
 .header.is-active .header__logo-picture {
   background-image: url("./../images/logo-blue.svg");
 }
+.header.is-active .sup-vertical {
+  display: none !important;
+}
 .header.is-fixed {
   position: fixed;
   background-color: #fff;
@@ -407,6 +467,9 @@ main {
 }
 .header.is-fixed .header__logo-picture {
   background-image: url("./../images/logo-blue.svg");
+}
+.header.is-fixed .sup-vertical {
+  display: block;
 }
 
 .btn-burger {
@@ -451,7 +514,6 @@ main {
   color: #fff;
   height: 100vh;
   height: 100svh;
-  overflow: hidden;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -773,6 +835,7 @@ main {
   }
 }
 .solutions {
+  position: relative;
   background-color: #021F3C;
   color: #fff;
   padding: 48px;
@@ -835,6 +898,9 @@ main {
   border-radius: 8px;
 }
 
+.delivery {
+  position: relative;
+}
 .delivery .container {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -886,6 +952,7 @@ main {
 }
 .delivery__vehicle {
   padding: 48px;
+  padding-right: 0;
 }
 .delivery__vehicle-wrapper {
   background: url(./../images/vehicle-list.svg) no-repeat;
@@ -963,6 +1030,7 @@ main {
 }
 
 .contacts {
+  position: relative;
   margin-bottom: 92px;
 }
 .contacts__title {
@@ -1035,8 +1103,8 @@ main {
 }
 
 .about {
-  height: 100vh;
-  min-height: 768px;
+  position: relative;
+  height: calc(100vh - 92px);
   background: -webkit-image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg")) no-repeat center center/cover;
   background-image: image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg"));
   color: #fff;
@@ -1087,6 +1155,9 @@ main {
   grid-column: 1/3;
 }
 
+.map {
+  position: relative;
+}
 .map__hint {
   margin-bottom: 12px;
 }
@@ -1095,6 +1166,7 @@ main {
   display: flex;
   gap: 32px;
   overflow: hidden;
+  height: 63px;
 }
 .map__btn-country {
   font-size: 2rem;
@@ -1109,6 +1181,7 @@ main {
 .map__btn-country.is-active {
   color: var(--green-dark);
   font-size: 3.75rem;
+  margin-top: -10px;
 }
 .map__globe-country-text {
   position: absolute;
@@ -1254,6 +1327,27 @@ main {
   main {
     gap: 100px;
   }
+  .sup-vertical-left {
+    left: 12px;
+  }
+  .sup-vertical-right {
+    right: 12px;
+  }
+  .sup-vertical-middle {
+    display: none;
+  }
+  .sup-horizontal-last {
+    bottom: 12px;
+  }
+  .sup-horizontal-bottom {
+    bottom: -12px;
+  }
+  .sup-horizontal-top {
+    top: -12px;
+  }
+  .sup-horizontal-map {
+    top: 58px;
+  }
   .container {
     padding-left: 24px;
     padding-right: 24px;
@@ -1270,6 +1364,9 @@ main {
     position: absolute;
     left: 24px;
     height: 100%;
+  }
+  .header__logo, .header__contacts, .header__burger {
+    width: auto;
   }
   .main {
     display: flex;
@@ -1334,6 +1431,7 @@ main {
   .map__countries {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    height: 43px;
   }
   .solutions {
     padding-left: 24px;
@@ -1346,6 +1444,9 @@ main {
   .delivery .container {
     grid-template-columns: 100%;
     grid-template-rows: auto;
+  }
+  .delivery__vehicle-wrapper {
+    left: -5%;
   }
   .about {
     padding-top: 24px;
@@ -1400,6 +1501,16 @@ main {
   main {
     gap: 60px;
   }
+  .sup-vertical {
+    display: none;
+  }
+  .sup-horizontal {
+    display: none;
+  }
+  .sup-horizontal-map {
+    display: block;
+    top: 49px;
+  }
   .container {
     padding-left: 16px;
     padding-right: 16px;
@@ -1442,6 +1553,9 @@ main {
   }
   .header.is-active.is-fixed {
     padding-bottom: 0;
+  }
+  .header.is-fixed .sup-vertical {
+    display: none;
   }
   .main__body {
     padding-top: 100px;
@@ -1553,6 +1667,7 @@ main {
   .map__countries {
     gap: 16px;
     margin-bottom: 32px;
+    height: 32px;
   }
   .map__btn-country {
     font-size: 1.125rem;
@@ -1593,6 +1708,7 @@ main {
     padding-bottom: 82px;
     background-size: 328px;
     justify-content: center;
+    left: unset;
   }
   .delivery__vehicle-list {
     display: none;

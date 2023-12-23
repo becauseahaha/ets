@@ -10,6 +10,27 @@
   main {
     gap: 100px;
   }
+  .sup-vertical-left {
+    left: 12px;
+  }
+  .sup-vertical-right {
+    right: 12px;
+  }
+  .sup-vertical-middle {
+    display: none;
+  }
+  .sup-horizontal-last {
+    bottom: 12px;
+  }
+  .sup-horizontal-bottom {
+    bottom: -12px;
+  }
+  .sup-horizontal-top {
+    top: -12px;
+  }
+  .sup-horizontal-map {
+    top: 58px;
+  }
   .container {
     padding-left: 24px;
     padding-right: 24px;
@@ -26,6 +47,9 @@
     position: absolute;
     left: 24px;
     height: 100%;
+  }
+  .header__logo, .header__contacts, .header__burger {
+    width: auto;
   }
   .main {
     display: flex;
@@ -90,6 +114,7 @@
   .map__countries {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    height: 43px;
   }
   .solutions {
     padding-left: 24px;
@@ -102,6 +127,9 @@
   .delivery .container {
     grid-template-columns: 100%;
     grid-template-rows: auto;
+  }
+  .delivery__vehicle-wrapper {
+    left: -5%;
   }
   .about {
     padding-top: 24px;
@@ -156,6 +184,16 @@
   main {
     gap: 60px;
   }
+  .sup-vertical {
+    display: none;
+  }
+  .sup-horizontal {
+    display: none;
+  }
+  .sup-horizontal-map {
+    display: block;
+    top: 49px;
+  }
   .container {
     padding-left: 16px;
     padding-right: 16px;
@@ -198,6 +236,9 @@
   }
   .header.is-active.is-fixed {
     padding-bottom: 0;
+  }
+  .header.is-fixed .sup-vertical {
+    display: none;
   }
   .main__body {
     padding-top: 100px;
@@ -309,6 +350,7 @@
   .map__countries {
     gap: 16px;
     margin-bottom: 32px;
+    height: 32px;
   }
   .map__btn-country {
     font-size: 1.125rem;
@@ -349,6 +391,7 @@
     padding-bottom: 82px;
     background-size: 328px;
     justify-content: center;
+    left: unset;
   }
   .delivery__vehicle-list {
     display: none;

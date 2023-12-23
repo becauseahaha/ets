@@ -57,11 +57,47 @@ body
     font-size: 1.125rem
     line-height: 1.3
     color: var(--black)
+    position: relative
 
 main
     display: flex
     flex-direction: column
     gap: 140px
+
+.sup-vertical
+    position: absolute
+    top: 0
+    bottom: 0
+    width: 1px
+    height: 100%
+    background-color: #E6E6E6
+    z-index: -1
+    &-left
+        left: 25px
+    &-right
+        right: 25px
+    &-middle
+        right: 50%
+        top: -140px
+        bottom: -140px
+        height: calc( 100% +  280px)
+
+.sup-horizontal
+    position: absolute
+    right: 0
+    left: 0
+    width: 100%
+    height: 1px
+    background-color: #E6E6E6
+    z-index: -1
+    &-last
+        bottom: 25px
+    &-bottom
+        bottom: -25px
+    &-top
+        top: -25px
+    &-map
+        top: 70px
 
 .icon-svg
     display: block
@@ -296,8 +332,9 @@ main
                 border-color: var(--green-dark)
     &__logo
         display: flex
-        justify-content: center
+        justify-content: flex-start
         align-items: center
+        width: 150px
         &-picture
             background: url('./../images/logo.svg') no-repeat center center/contain
             width: 135px
@@ -313,6 +350,15 @@ main
             height: 100%
             border-right: 1px solid rgba(255, 255, 255, 0.30)
             margin: 0 24px
+        & > .link
+            width: 150px
+    &__burger
+        width: 150px
+        display: flex
+        justify-content: flex-end
+    
+    .sup-vertical
+        display: none
 
     &.is-active
         position: fixed
@@ -330,6 +376,8 @@ main
             border-color: #E6E6E6
         .header__logo-picture
             background-image: url('./../images/logo-blue.svg')
+        .sup-vertical
+            display: none !important
 
     &.is-fixed
         position: fixed
@@ -343,6 +391,8 @@ main
             border-color: #E6E6E6
         .header__logo-picture
             background-image: url('./../images/logo-blue.svg')
+        .sup-vertical
+            display: block
 
 .btn-burger
     position: relative
@@ -382,7 +432,6 @@ main
     color: #fff
     height: 100vh
     height: 100svh
-    overflow: hidden
     display: flex
     align-items: flex-end
     justify-content: center
@@ -655,6 +704,7 @@ main
         left: 0px
 
 .solutions
+    position: relative
     background-color: #021F3C
     color: #fff
     padding: 48px
@@ -704,6 +754,7 @@ main
             border-radius: 8px
 
 .delivery
+    position: relative
     .container
         display: grid
         grid-template-columns: 50% 50%
@@ -748,6 +799,7 @@ main
                 background-color: var(--blue)
     &__vehicle
         padding: 48px
+        padding-right: 0
         &-wrapper
             background: url(./../images/vehicle-list.svg) no-repeat
             background-position: right 370px center
@@ -816,6 +868,7 @@ main
             display: none
 
 .contacts
+    position: relative
     margin-bottom: 92px
     &__title
         font-size: 3.75rem
@@ -878,8 +931,9 @@ main
                     transform: scale(1.08)
 
 .about
-    height: 100vh
-    min-height: 768px
+    position: relative
+    height: calc(100vh - 92px)
+    // min-height: 768px
     background: -webkit-image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg")) no-repeat center center/cover
     background-image: image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg"))
     color: #fff
@@ -923,6 +977,7 @@ main
         grid-column: 1/3
 
 .map
+    position: relative
     &__hint
         margin-bottom: 12px
     &__countries
@@ -930,6 +985,7 @@ main
         display: flex
         gap: 32px
         overflow: hidden
+        height: 63px
         // scroll-snap-type: x mandatory
     &__btn-country
         font-size: 2rem
@@ -942,6 +998,7 @@ main
         &.is-active
             color: var(--green-dark)
             font-size: 3.75rem
+            margin-top: -10px
 
     &__globe-country-text
         position: absolute

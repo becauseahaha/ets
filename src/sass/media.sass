@@ -1,3 +1,11 @@
+@media (max-width: 1439px)
+    .main
+        &__title
+            font-size: 3.25rem
+            // margin-bottom: 32px 
+        &__benefits
+            font-size: 1rem
+    
 @media (max-width: 1279px)
 
     main
@@ -28,7 +36,8 @@
                 flex-direction: column
         &__title
             font-size: 3.25rem
-            margin-bottom: 32px 
+            flex: 0 0 auto
+            margin-bottom: 32px
             &-icons
                 height: 60px
         &__content-wrapper
@@ -67,6 +76,9 @@
             font-size: 1.5rem
             &.is-active
                 font-size: 2rem
+        &__countries
+            overflow-x: auto
+            scroll-snap-type: x mandatory
 
     .solutions
         padding-left: 24px
@@ -187,13 +199,14 @@
         &__request-mobile
             display: grid
             background-color: #F6F6F6
-            max-width: 100%
+            width: auto
             min-width: unset
             overflow: auto
             scroll-snap-type: x mandatory
             scroll-padding: 16px
             margin-left: 16px
             margin-right: 16px
+            height: 270px
             .card
                 width: 255px
                 scroll-snap-align: start
@@ -405,7 +418,8 @@
         &__body
             font-size: 1rem
         &__side-close
-            top: 80px
+            bottom: calc(100% - 110px)
+            top: unset
 
     .popup-bottom
         height: calc(100vh - 60px)
@@ -415,8 +429,7 @@
         top: unset
         right: unset
         bottom: 0
-        height: calc(100vh - 60px)
-        height: calc(100svh - 60px)
+        height: calc(100% - 60px)
         width: 100%
         padding: 36px 16px 16px
 

@@ -1,3 +1,11 @@
+@media (max-width: 1439px) {
+  .main__title {
+    font-size: 3.25rem;
+  }
+  .main__benefits {
+    font-size: 1rem;
+  }
+}
 @media (max-width: 1279px) {
   main {
     gap: 100px;
@@ -31,6 +39,7 @@
   }
   .main__title {
     font-size: 3.25rem;
+    flex: 0 0 auto;
     margin-bottom: 32px;
   }
   .main__title-icons {
@@ -77,6 +86,10 @@
   }
   .map__btn-country.is-active {
     font-size: 2rem;
+  }
+  .map__countries {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
   }
   .solutions {
     padding-left: 24px;
@@ -215,13 +228,14 @@
   .main__request-mobile {
     display: grid;
     background-color: #F6F6F6;
-    max-width: 100%;
+    width: auto;
     min-width: unset;
     overflow: auto;
     scroll-snap-type: x mandatory;
     scroll-padding: 16px;
     margin-left: 16px;
     margin-right: 16px;
+    height: 270px;
   }
   .main__request-mobile .card {
     width: 255px;
@@ -456,7 +470,8 @@
     font-size: 1rem;
   }
   .popup__side-close {
-    top: 80px;
+    bottom: calc(100% - 110px);
+    top: unset;
   }
   .popup-bottom {
     height: calc(100vh - 60px);
@@ -466,8 +481,7 @@
     top: unset;
     right: unset;
     bottom: 0;
-    height: calc(100vh - 60px);
-    height: calc(100svh - 60px);
+    height: calc(100% - 60px);
     width: 100%;
     padding: 36px 16px 16px;
   }

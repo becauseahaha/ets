@@ -44,7 +44,7 @@ function showPopup(id) {
     if (popup.dataset.processing && popup.dataset.processing == true) return;
     popup.dataset.processing = true;
 
-    if (id == 'popup-menu' && document.body.clientWidth > 420) {
+    if (id == 'popup-menu' && window.innerWidth > 420) {
         let menu_btn_offetX = document.getElementById('btn-show-menu').getBoundingClientRect().x;
         document.querySelector('.popup__menu').style.paddingLeft = menu_btn_offetX + 'px';
     }
@@ -193,7 +193,7 @@ const suggestions = () => {
 }
 
 const contactsCards = () => {
-    if (document.body.clientWidth > 767) return;
+    if (window.innerWidth > 767) return;
     document.querySelectorAll('.js-contacts-card .contacts-card__city').forEach((el) => {
         el.addEventListener('click', () => {
             document.querySelectorAll('.js-contacts-card').forEach((el) => {
@@ -201,6 +201,224 @@ const contactsCards = () => {
             })
             el.closest('.js-contacts-card').classList.toggle('is-active');
         })
+    })
+}
+
+const fileButtons = () => {
+    document.querySelectorAll('.js-file-btn').forEach((el) => {
+        el.addEventListener('change', function() {
+            if (this.files[0] === undefined || this.files[0].name.length == 0) return;
+            const file = this.files[0];
+            const parent = el.closest('label');
+            parent.classList.add('is-active');
+            parent.querySelector('.btn-file__name').innerText = file.name;
+            el.addEventListener('click', () => {
+                parent.classList.remove('is-active');
+                parent.querySelector('.js-file-btn').value = null;
+            }, {once: true})
+        })
+    })
+}
+
+const forms = () => {
+
+    function resizeForms() {
+        document.querySelectorAll('.js-form-steps').forEach((el) => {
+            const parent = document.getElementById('block-request');
+            const w =  (window.innerWidth >= 1280 ? parent.clientWidth/2 : parent.clientWidth) - parseInt(getComputedStyle(el.closest('.request__form')).padding)*2;
+            el.style.width = w + 'px';
+            el.querySelectorAll('.js-form-step').forEach((el) => {
+                el.style.width = w + 'px';
+            })
+        })
+    }
+
+    window.addEventListener('resize', resizeForms);
+    resizeForms();
+
+    const form1 = document.getElementById('form-1');
+    const form2 = document.getElementById('form-2');
+    const form3 = document.getElementById('form-3');
+
+    const form1_submit = form1.querySelector('.js-submit');
+    const form2_submit = form2.querySelector('.js-submit');
+    const form3_submit = form3.querySelector('.js-submit');
+
+    form1.dataset.step = 1;
+    form2.dataset.step = 1;
+
+    form3_submit.addEventListener('click', () => {
+
+        form3.dataset.errors = 0;
+
+        const phone = form3.querySelector('input[name="phone"]');
+        const message = form3.querySelector('[name="message"]');
+
+        if (phone.value.length == 0) {
+            phone.classList.add('is-error');
+            form3.dataset.errors++;
+        } else {
+            phone.classList.remove('is-error');
+        }
+        if (message.value.length == 0) {
+            message.classList.add('is-error');
+            form3.dataset.errors++;
+        } else {
+            message.classList.remove('is-error');
+        }
+
+        if (form3.dataset.errors > 0) return;
+
+        const formData = new FormData(form3);
+
+        fetch("https://wikianime.tv/albion/mailer.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(function(serverPromise) { 
+            serverPromise.json()
+            .then(function(data) { 
+                form3.style.display = 'none';
+                document.getElementById('form-3-success').style.display = 'flex';
+            });
+        });
+
+    })
+    
+    form2_submit.addEventListener('click', () => {
+
+        form2.dataset.errors = 0;
+
+        const type = form2.querySelector('input[name="type"]');
+        const amount = form2.querySelector('input[name="amount"]');
+        const weight = form2.querySelector('input[name="weight"]');
+        const phone = form2.querySelector('input[name="phone"]');
+
+        if (form2.dataset.step == 1) {
+
+            if (type.value.length == 0) {
+                type.classList.add('is-error');
+                form2.dataset.errors++;
+            } else {
+                type.classList.remove('is-error');
+            }
+            if (amount.value.length == 0) {
+                amount.classList.add('is-error');
+                form2.dataset.errors++;
+            } else {
+                amount.classList.remove('is-error');
+            }
+            if (weight.value.length == 0) {
+                weight.classList.add('is-error');
+                form2.dataset.errors++;
+            } else {
+                weight.classList.remove('is-error');
+            }
+
+            if (form2.dataset.errors > 0) return;
+
+            form2.querySelectorAll('.js-form-step').forEach((el) => {
+                el.style.left = (-1 * el.clientWidth) + 'px'
+            })
+            form2.querySelector('.js-current-step').innerText = '02';
+            form2.dataset.step++;
+            form2_submit.querySelector('span:first-child').innerText = 'Отправить';
+
+        } else if (form2.dataset.step == 2) {
+
+            if (phone.value.length == 0) {
+                phone.classList.add('is-error');
+                form2.dataset.errors++;
+            } else {
+                phone.classList.remove('is-error');
+            }
+
+            if (form2.dataset.errors > 0) return;
+
+            const formData = new FormData(form2);
+
+            fetch("https://wikianime.tv/albion/mailer.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(function(serverPromise) { 
+                serverPromise.json()
+                .then(function(data) { 
+                    form2.style.display = 'none';
+                    document.getElementById('form-2-success').style.display = 'flex';
+                });
+            });
+        }
+
+    })
+    
+    form1_submit.addEventListener('click', () => {
+
+        form1.dataset.errors = 0;
+
+        const type = form1.querySelector('input[name="type"]');
+        const phone = form1.querySelector('input[name="phone"]');
+
+        if (form1.dataset.step == 1) {
+
+            if (type.value.length == 0) {
+                type.classList.add('is-error');
+                form1.dataset.errors++;
+            } else {
+                type.classList.remove('is-error');
+            }
+
+            if (form1.dataset.errors > 0) return;
+
+            form1.querySelectorAll('.js-form-step').forEach((el) => {
+                el.style.left = (-1 * el.clientWidth) + 'px'
+            })
+            form1.dataset.step++;
+            form1_submit.querySelector('span:first-child').innerText = 'Отправить';
+
+        } else if (form1.dataset.step == 2) {
+
+            if (phone.value.length == 0) {
+                phone.classList.add('is-error');
+                form1.dataset.errors++;
+            } else {
+                phone.classList.remove('is-error');
+            }
+
+            if (form1.dataset.errors > 0) return;
+
+            const formData = new FormData(form1);
+
+            fetch("mailer.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(function(serverPromise) { 
+                serverPromise.json()
+                .then(function(data) { 
+                    form1.style.display = 'none';
+                    document.getElementById('form-1-success').style.display = 'flex';
+                });
+            });
+        }
+
+    })
+
+}
+
+const countriesSlider = () => {
+
+    if (window.innerWidth < 1280) return;
+
+    const container = document.getElementById('countries-slider');
+    container.addEventListener('mousemove', function(e) {
+
+        const offsetPercentage = e.clientX / (document.body.clientWidth/100)
+        const sliderOnePerc = container.clientWidth/100
+
+        container.scrollTo({
+            left: sliderOnePerc * offsetPercentage - container.clientWidth/3
+      })
     })
 }
 
@@ -213,6 +431,9 @@ document.addEventListener('DOMContentLoaded', () => {
     clickToScroll();
     suggestions();
     contactsCards();
+    fileButtons();
+    forms();
+    countriesSlider();
 
     document.querySelectorAll('.js-open-menu').forEach((el) => {
         el.addEventListener('click', toggleMenu);

@@ -8,6 +8,7 @@
     color: inherit
     background: unset
     font-family: inherit
+    border-radius: 0
 
 a
     text-decoration: none
@@ -62,6 +63,9 @@ main
     flex-direction: column
     gap: 140px
 
+.icon-svg
+    display: block
+
 .container
     width: 100%
     max-width: 1440px
@@ -75,16 +79,15 @@ main
 .select
     display: block
     width: 100%
-    box-shadow: inset 0px -1px var(--black)
+    border-bottom: 1px solid var(--black)
     font-size: 1.125rem
     font-weight: bold
     padding-bottom: 16px
     &:focus-visible
-        box-shadow: inset 0px -2px var(--black)
+        padding-bottom: 15px
+        border-bottom: 2px solid var(--black)
     &.is-error
-        box-shadow: inset 0px -1px var(--red)
-        &:focus-visible
-            box-shadow: inset 0px -2px var(--red)
+        border-color: var(--red)
 
 .input-title
     font-size: 1rem
@@ -99,8 +102,9 @@ main
 .btn-file
     position: relative
     overflow: hidden
-    width: 60px
+    min-width: 60px
     height: 60px
+    padding: 18px
     background-color: #fff
     display: flex
     align-items: center
@@ -108,12 +112,30 @@ main
     border-radius: 8px
     transition: all 0.3s
     cursor: pointer
-    input[type="file"]
-        position: absolute
-        left: -999px
     .icon-svg
         width: 24px
         height: 24px
+    &__name
+        display: none
+        margin-right: 16px
+        text-overflow: ellipsis
+        white-space: nowrap
+        overflow: hidden
+        max-width: 10ch
+    &__cancel
+        display: none
+        position: relative
+        top: 3px
+    input[type="file"]
+        position: absolute
+        left: -999px
+    &.is-active
+        .btn-file
+            &__upload
+                display: none
+            &__name,
+            &__cancel
+                display: block
 
 .btn
     position: relative
@@ -177,9 +199,6 @@ main
         color: #fff
         .btn__arrow
             background-image: url(./../images/icon-arrow.svg)
-            
-.icon-svg
-    display: block
 
 .link
     text-decoration: none
@@ -299,8 +318,7 @@ main
         position: fixed
         background-color: #fff
         color: var(--black)
-        height: 100vh  
-        height: 100svh  
+        height: 100%
         z-index: 3
         .header__header
             border-color: #E6E6E6
@@ -362,9 +380,12 @@ main
     position: relative
     z-index: 0
     color: #fff
-    min-height: 100vh
-    min-height: 100svh
+    height: 100vh
+    height: 100svh
     overflow: hidden
+    display: flex
+    align-items: flex-end
+    justify-content: center
     &__bgs
         position: absolute
         top: 0
@@ -420,15 +441,22 @@ main
     &__body
         position: relative
         z-index: 1
-        padding-top: 265px
+        padding-top: 92px
         padding-bottom: 48px
+        height: 100vh
+        height: 100svh
         > .container 
             height: 100%
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
     &__title
         font-size: 4.5rem
         line-height: 1.05
         text-align: center
-        margin-bottom: 160px
+        flex: 1 0 auto
+        display: flex
+        align-items: center
         &-icons
             vertical-align: middle
     &__content-wrapper
@@ -460,6 +488,16 @@ main
     &__request-mobile
         display: none
 
+.success
+    width: 68px
+    height: 68px
+    border-radius: 8px
+    background: url(./../images/icon-success.svg) center center no-repeat
+    background-size: 24px 24px
+    background-color: #fff
+    &--green
+        background-color: var(--green)
+
 .request
     background-color: var(--green)
     border-radius: 8px
@@ -471,7 +509,33 @@ main
         display: flex
         flex-direction: column
         justify-content: space-between
+
+        &-success
+            justify-content: center
+            align-items: center
+            gap: 0
+            height: 100%
+            .success
+                margin-bottom: 40px
+            .title
+                margin-bottom: 20px
+
+        &-steps
+            overflow: hidden
+            display: grid
+            grid-template-columns: 1fr 1fr
         &-step
+            position: relative
+            transition: 0.3s all
+            left: 0
+        &-hint
+            color: rgba(15, 29, 45, 0.50)
+            font-size: 1rem
+            > button
+                text-decoration: underline
+                &:hover
+                    text-decoration: none
+        &-current-step-text
             font-size: 1rem
         &-controls-wrapper
             display: flex
@@ -496,6 +560,7 @@ main
             font-size: 1rem
             display: flex
             gap: 12px
+            flex-wrap: wrap
             &-btn
                 color: var(--black)
                 border-bottom: 1px solid rgba(15, 29, 45, 0.15)
@@ -815,7 +880,8 @@ main
 .about
     height: 100vh
     min-height: 768px
-    background: url(./../images/about.jpg) no-repeat center center/cover
+    background: -webkit-image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg")) no-repeat center center/cover
+    background-image: image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg"))
     color: #fff
     padding: 48px 0
     .container
@@ -863,9 +929,8 @@ main
         margin-bottom: 48px
         display: flex
         gap: 32px
-        overflow-x: auto
-        overflow-y: hidden
-        scroll-snap-type: x mandatory
+        overflow: hidden
+        // scroll-snap-type: x mandatory
     &__btn-country
         font-size: 2rem
         font-weight: bold

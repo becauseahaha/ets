@@ -8,6 +8,7 @@
   color: inherit;
   background: unset;
   font-family: inherit;
+  border-radius: 0;
 }
 
 a {
@@ -71,6 +72,10 @@ main {
   gap: 140px;
 }
 
+.icon-svg {
+  display: block;
+}
+
 .container {
   width: 100%;
   max-width: 1440px;
@@ -86,22 +91,19 @@ main {
 .select {
   display: block;
   width: 100%;
-  box-shadow: inset 0px -1px var(--black);
+  border-bottom: 1px solid var(--black);
   font-size: 1.125rem;
   font-weight: bold;
   padding-bottom: 16px;
 }
 .input:focus-visible,
 .select:focus-visible {
-  box-shadow: inset 0px -2px var(--black);
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--black);
 }
 .input.is-error,
 .select.is-error {
-  box-shadow: inset 0px -1px var(--red);
-}
-.input.is-error:focus-visible,
-.select.is-error:focus-visible {
-  box-shadow: inset 0px -2px var(--red);
+  border-color: var(--red);
 }
 
 .input-title {
@@ -119,8 +121,9 @@ main {
 .btn-file {
   position: relative;
   overflow: hidden;
-  width: 60px;
+  min-width: 60px;
   height: 60px;
+  padding: 18px;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -129,13 +132,32 @@ main {
   transition: all 0.3s;
   cursor: pointer;
 }
+.btn-file .icon-svg {
+  width: 24px;
+  height: 24px;
+}
+.btn-file__name {
+  display: none;
+  margin-right: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 10ch;
+}
+.btn-file__cancel {
+  display: none;
+  position: relative;
+  top: 3px;
+}
 .btn-file input[type=file] {
   position: absolute;
   left: -999px;
 }
-.btn-file .icon-svg {
-  width: 24px;
-  height: 24px;
+.btn-file.is-active .btn-file__upload {
+  display: none;
+}
+.btn-file.is-active .btn-file__name, .btn-file.is-active .btn-file__cancel {
+  display: block;
 }
 
 .btn {
@@ -214,10 +236,6 @@ main {
 }
 .btn-grey:hover .btn__arrow {
   background-image: url(./../images/icon-arrow.svg);
-}
-
-.icon-svg {
-  display: block;
 }
 
 .link {
@@ -358,8 +376,7 @@ main {
   position: fixed;
   background-color: #fff;
   color: var(--black);
-  height: 100vh;
-  height: 100svh;
+  height: 100%;
   z-index: 3;
 }
 .header.is-active .header__header {
@@ -432,9 +449,12 @@ main {
   position: relative;
   z-index: 0;
   color: #fff;
-  min-height: 100vh;
-  min-height: 100svh;
+  height: 100vh;
+  height: 100svh;
   overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 .main__bgs {
   position: absolute;
@@ -500,17 +520,24 @@ main {
 .main__body {
   position: relative;
   z-index: 1;
-  padding-top: 265px;
+  padding-top: 92px;
   padding-bottom: 48px;
+  height: 100vh;
+  height: 100svh;
 }
 .main__body > .container {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .main__title {
   font-size: 4.5rem;
   line-height: 1.05;
   text-align: center;
-  margin-bottom: 160px;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
 }
 .main__title-icons {
   vertical-align: middle;
@@ -550,6 +577,18 @@ main {
   display: none;
 }
 
+.success {
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  background: url(./../images/icon-success.svg) center center no-repeat;
+  background-size: 24px 24px;
+  background-color: #fff;
+}
+.success--green {
+  background-color: var(--green);
+}
+
 .request {
   background-color: var(--green);
   border-radius: 8px;
@@ -563,7 +602,39 @@ main {
   flex-direction: column;
   justify-content: space-between;
 }
+.request__form-success {
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  height: 100%;
+}
+.request__form-success .success {
+  margin-bottom: 40px;
+}
+.request__form-success .title {
+  margin-bottom: 20px;
+}
+.request__form-steps {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .request__form-step {
+  position: relative;
+  transition: 0.3s all;
+  left: 0;
+}
+.request__form-hint {
+  color: rgba(15, 29, 45, 0.5);
+  font-size: 1rem;
+}
+.request__form-hint > button {
+  text-decoration: underline;
+}
+.request__form-hint > button:hover {
+  text-decoration: none;
+}
+.request__form-current-step-text {
   font-size: 1rem;
 }
 .request__form-controls-wrapper {
@@ -595,6 +666,7 @@ main {
   font-size: 1rem;
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 .request__form-suggestions-btn {
   color: var(--black);
@@ -965,7 +1037,8 @@ main {
 .about {
   height: 100vh;
   min-height: 768px;
-  background: url(./../images/about.jpg) no-repeat center center/cover;
+  background: -webkit-image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg")) no-repeat center center/cover;
+  background-image: image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg"));
   color: #fff;
   padding: 48px 0;
 }
@@ -1021,9 +1094,7 @@ main {
   margin-bottom: 48px;
   display: flex;
   gap: 32px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
+  overflow: hidden;
 }
 .map__btn-country {
   font-size: 2rem;
@@ -1171,6 +1242,14 @@ main {
   background-color: #fff;
 }
 
+@media (max-width: 1439px) {
+  .main__title {
+    font-size: 3.25rem;
+  }
+  .main__benefits {
+    font-size: 1rem;
+  }
+}
 @media (max-width: 1279px) {
   main {
     gap: 100px;
@@ -1204,6 +1283,7 @@ main {
   }
   .main__title {
     font-size: 3.25rem;
+    flex: 0 0 auto;
     margin-bottom: 32px;
   }
   .main__title-icons {
@@ -1250,6 +1330,10 @@ main {
   }
   .map__btn-country.is-active {
     font-size: 2rem;
+  }
+  .map__countries {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
   }
   .solutions {
     padding-left: 24px;
@@ -1388,13 +1472,14 @@ main {
   .main__request-mobile {
     display: grid;
     background-color: #F6F6F6;
-    max-width: 100%;
+    width: auto;
     min-width: unset;
     overflow: auto;
     scroll-snap-type: x mandatory;
     scroll-padding: 16px;
     margin-left: 16px;
     margin-right: 16px;
+    height: 270px;
   }
   .main__request-mobile .card {
     width: 255px;
@@ -1629,7 +1714,8 @@ main {
     font-size: 1rem;
   }
   .popup__side-close {
-    top: 80px;
+    bottom: calc(100% - 110px);
+    top: unset;
   }
   .popup-bottom {
     height: calc(100vh - 60px);
@@ -1639,8 +1725,7 @@ main {
     top: unset;
     right: unset;
     bottom: 0;
-    height: calc(100vh - 60px);
-    height: calc(100svh - 60px);
+    height: calc(100% - 60px);
     width: 100%;
     padding: 36px 16px 16px;
   }

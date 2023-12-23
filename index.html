@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ETS</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preload" as="image" href="./images/logo-blue.svg">
 </head>
 <body>
 
@@ -73,7 +74,7 @@
             <div class="main__body">
                 <div class="container">
                     <h1 class="main__title">
-                        Доставка <img src="./images/main-icons.png" srcset="./images/main-icons@2x.png 2x" class="main__title-icons"> грузов из Европы с таможенным оформлением
+                        <div>Доставка <img src="./images/main-icons.png" srcset="./images/main-icons@2x.png 2x" class="main__title-icons"> грузов из Европы с таможенным оформлением</div>
                     </h1>
                     <div class="main__content-wrapper">
                         <div class="main__benefits">
@@ -122,48 +123,75 @@
 
         <div class="container" id="block-types">
             <div class="request">
-                <div class="request__form">
+                <div class="request__form request__form-success" id="form-1-success" style="display: none;">
+                    <div class="success"></div>
+                    <div class="title">Заявка отправлена</div>
+                    <div>В ближайшее время мы свяжемся с вами.</div>
+                </div>
+                <form class="request__form" id="form-1" action="mailer.php" method="post">
                     <div>
-                        <h2 class="request__form-title">Оставьте заявку на поиск товара — мы найдём и поможем доставить</h2>
-                        <div class="request__form-row">
-                            <label>
-                                <div class="input-title">Тип груза<span class="input-title__required">*</span></div>
-                                <input type="text" class="input" id="input-1">
-                            </label>
-                        </div>
-                        <div class="request__form-row-40 request__form-suggestions">
-                            <span>Например:</span>
-                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-1">Электроника</button>
-                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-1">Запчасти</button>
-                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-1">Мебель</button>
-                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-1">Санкционные товары</button>
-                        </div>
-                        <div class="request__form-row">
-                            <label>
-                                <div class="input-title">Регионы</div>
-                                <select name="" class="select">
-                                    <option value=""></option>
-                                    <option value="">Азия</option>
-                                    <option value="">Ближний Восток</option>
-                                    <option value="">Северная Америка</option>
-                                    <option value="">Южная Америка</option>
-                                    <option value="">Африка</option>
-                                    <option value="">Австралия</option>
-                                </select>
-                            </label>
+                        <input type="hidden" name="subject" value="Новая заявка">
+                        <div>
+                            <h2 class="request__form-title">Оставьте заявку на поиск товара — мы найдём и поможем доставить</h2>
+                            <div class="request__form-steps js-form-steps">
+                                <div class="request__form-step js-form-step">
+                                    <div class="request__form-row">
+                                        <label>
+                                            <div class="input-title">Тип груза<span class="input-title__required">*</span></div>
+                                            <input type="text" name="type" class="input" id="input-1">
+                                        </label>
+                                    </div>
+                                    <div class="request__form-row-40 request__form-suggestions">
+                                        <span>Например:</span>
+                                        <button type="button" class="request__form-suggestions-btn js-suggestion" data-target="input-1">Электроника</button>
+                                        <button type="button" class="request__form-suggestions-btn js-suggestion" data-target="input-1">Запчасти</button>
+                                        <button type="button" class="request__form-suggestions-btn js-suggestion" data-target="input-1">Мебель</button>
+                                        <button type="button" class="request__form-suggestions-btn js-suggestion" data-target="input-1">Санкционные товары</button>
+                                    </div>
+                                    <div class="request__form-row">
+                                        <label>
+                                            <div class="input-title">Регионы</div>
+                                            <select name="country" class="select">
+                                                <option value=""></option>
+                                                <option value="Азия">Азия</option>
+                                                <option value="Ближний Восток">Ближний Восток</option>
+                                                <option value="Северная Америка">Северная Америка</option>
+                                                <option value="Южная Америка">Южная Америка</option>
+                                                <option value="Африка">Африка</option>
+                                                <option value="Австралия">Австралия</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="request__form-step js-form-step">
+                                    <div class="request__form-row-40">
+                                        <label>
+                                            <div class="input-title">Имя</div>
+                                            <input type="text" name="name" class="input">
+                                        </label>
+                                    </div>
+                                    <div class="request__form-row">
+                                        <label>
+                                            <div class="input-title">Телефон<span class="input-title__required">*</span></div>
+                                            <input type="text" name="phone" class="input">
+                                        </label>
+                                    </div>
+                                    <div class="request__form-hint">Отправляя данную форму вы соглашаетесь с <button type="button" class="js-popup-show" data-target="popup-policy">политикой конфиденциальности</button></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="request__form-controls-wrapper">
                         <div class="request__form-controls">
-                            <button class="btn"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
+                            <button type="button" class="btn js-submit"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
                         </div>
                     </div>
-                </div>
+                </form>
                 <div class="request__image">
                     <picture>
                         <source srcset="./images/request-1-tablet.jpg, ./images/request-1-tablet@2x.jpg 1.5x" media="(max-width: 1279px)" />
                         <source srcset="./images/request-1@2x.jpg 1.5x" />
-                        <img src="./images/request-1.jpg" class="request__image-picture">
+                        <img src="./images/request-1.jpg" class="request__image-picture" loading="lazy">
                     </picture>
                 </div>
                 <div class="request__slider">
@@ -259,7 +287,7 @@
         <div class="map" id="block-map">
             <div class="container">
                 <div class="map__hint">Доставляем со всех частей света:</div>
-                <div class="map__countries">
+                <div class="map__countries" id="countries-slider">
                     <button class="map__btn-country js-map-btn" data-target="map-asia">Азия</button>
                     <button class="map__btn-country js-map-btn" data-target="map-mid-east">Ближний Восток</button>
                     <button class="map__btn-country js-map-btn" data-target="map-europe">Европа</button>
@@ -269,16 +297,16 @@
                     <button class="map__btn-country js-map-btn" data-target="map-australia">Австралия</button>
                 </div>
                 <div class="map__globe">
-                    <img src="./images/map-north-america.png" class="map__picture-country js-map-layer" id="map-north-america">
-                    <img src="./images/map-south-america.png" class="map__picture-country js-map-layer" id="map-south-america">
-                    <img src="./images/map-africa.png" class="map__picture-country js-map-layer" id="map-africa">
-                    <img src="./images/map-europe.png" class="map__picture-country js-map-layer" id="map-europe">
-                    <img src="./images/map-asia.png" class="map__picture-country js-map-layer" id="map-asia">
-                    <img src="./images/map-australia.png" class="map__picture-country js-map-layer" id="map-australia">
-                    <img src="./images/map-mid-east.png" class="map__picture-country js-map-layer" id="map-mid-east">
+                    <img src="./images/map-north-america.png" class="map__picture-country js-map-layer" id="map-north-america" loading="lazy">
+                    <img src="./images/map-south-america.png" class="map__picture-country js-map-layer" id="map-south-america" loading="lazy">
+                    <img src="./images/map-africa.png" class="map__picture-country js-map-layer" id="map-africa" loading="lazy">
+                    <img src="./images/map-europe.png" class="map__picture-country js-map-layer" id="map-europe" loading="lazy">
+                    <img src="./images/map-asia.png" class="map__picture-country js-map-layer" id="map-asia" loading="lazy">
+                    <img src="./images/map-australia.png" class="map__picture-country js-map-layer" id="map-australia" loading="lazy">
+                    <img src="./images/map-mid-east.png" class="map__picture-country js-map-layer" id="map-mid-east" loading="lazy">
                     <picture>
                         <source srcset="./images/map-countries-tablet.png" media="(max-width: 1279px)" />
-                        <img src="./images/map-countries.png" class="map__picture-countries-titles">
+                        <img src="./images/map-countries.png" class="map__picture-countries-titles" loading="lazy">
                     </picture>
                     <img src="./images/map.png" class="map__picture">
                     <!-- <div class="map__globe-country-text map__globe-country-na">Северная америка</div>
@@ -304,7 +332,7 @@
                         <div class="solution-card__image">
                             <picture>
                                 <source srcset="./images/solution-1@2x.jpg 1.5x" />
-                                <img src="./images/solution-1.jpg" class="solution-card__image-picture">
+                                <img src="./images/solution-1.jpg" class="solution-card__image-picture" loading="lazy">
                             </picture>
                         </div>
                     </div>
@@ -316,7 +344,7 @@
                         <div class="solution-card__image">
                             <picture>
                                 <source srcset="./images/solution-2@2x.jpg 1.5x" />
-                                <img src="./images/solution-2.jpg" class="solution-card__image-picture">
+                                <img src="./images/solution-2.jpg" class="solution-card__image-picture" loading="lazy">
                             </picture>
                         </div>
                     </div>
@@ -328,7 +356,7 @@
                         <div class="solution-card__image">
                             <picture>
                                 <source srcset="./images/solution-3@2x.jpg 1.5x" />
-                                <img src="./images/solution-3.jpg" class="solution-card__image-picture">
+                                <img src="./images/solution-3.jpg" class="solution-card__image-picture" loading="lazy">
                             </picture>
                         </div>
                     </div>
@@ -340,7 +368,7 @@
                         <div class="solution-card__image">
                             <picture>
                                 <source srcset="./images/solution-4@2x.jpg 1.5x" />
-                                <img src="./images/solution-4.jpg" class="solution-card__image-picture">
+                                <img src="./images/solution-4.jpg" class="solution-card__image-picture" loading="lazy">
                             </picture>
                         </div>
                     </div>
@@ -352,7 +380,7 @@
                         <div class="solution-card__image">
                             <picture>
                                 <source srcset="./images/solution-5@2x.jpg 1.5x" />
-                                <img src="./images/solution-5.jpg" class="solution-card__image-picture">
+                                <img src="./images/solution-5.jpg" class="solution-card__image-picture" loading="lazy">
                             </picture>
                         </div>
                     </div>
@@ -364,7 +392,7 @@
                         <div class="solution-card__image">
                             <picture>
                                 <source srcset="./images/solution-6@2x.jpg 1.5x" />
-                                <img src="./images/solution-6.jpg" class="solution-card__image-picture">
+                                <img src="./images/solution-6.jpg" class="solution-card__image-picture" loading="lazy">
                             </picture>
                         </div>
                     </div>
@@ -421,10 +449,10 @@
                             <button class="delivery__vehicle-list-btn js-vehicle-btn" data-target="vehicle-ship">Морской транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
                         </div>
                         <div class="delivery__vehicle-image">
-                            <img src="./images/vehicle-train.png" srcset="./images/vehicle-train@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer" id="vehicle-train">
-                            <img src="./images/vehicle-plane.png" srcset="./images/vehicle-plane@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer is-active" id="vehicle-plane">
-                            <img src="./images/vehicle-truck.png" srcset="./images/vehicle-truck@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer" id="vehicle-truck">
-                            <img src="./images/vehicle-ship.png" srcset="./images/vehicle-ship@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer" id="vehicle-ship">
+                            <img src="./images/vehicle-train.png" srcset="./images/vehicle-train@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer" id="vehicle-train" loading="lazy">
+                            <img src="./images/vehicle-plane.png" srcset="./images/vehicle-plane@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer is-active" id="vehicle-plane" loading="lazy">
+                            <img src="./images/vehicle-truck.png" srcset="./images/vehicle-truck@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer" id="vehicle-truck" loading="lazy">
+                            <img src="./images/vehicle-ship.png" srcset="./images/vehicle-ship@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer" id="vehicle-ship" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -466,65 +494,95 @@
 
         <div class="container">
             <div class="request" id="block-request">
-                <div class="request__form request__form-2">
+                <div class="request__form request__form-success" id="form-2-success" style="display: none;">
+                    <div class="success"></div>
+                    <div class="title">Заявка отправлена</div>
+                    <div>В ближайшее время мы свяжемся с вами.</div>
+                </div>
+                <form class="request__form request__form-2" id="form-2" action="mailer.php" method="post" enctype="multipart/form-data">
                     <div>
+                        <input type="hidden" name="subject" value="Новая заявка">
                         <h2 class="request__form-title">Оставьте заявку</h2>
                         <div class="request__form-text">Заполните общие данные для консультации менеджером. Мы свяжемся с вами для уточения всех деталей.</div>
-                        <div class="request__form-row">
-                            <label>
-                                <div class="input-title">Тип груза<span class="input-title__required">*</span></div>
-                                <input type="text" class="input" id="input-2">
-                            </label>
-                        </div>
-                        <div class="request__form-row-40 request__form-suggestions">
-                            <span>Например:</span>
-                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-2">Электроника</button>
-                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-2">Запчасти</button>
-                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-2">Мебель</button>
-                            <button class="request__form-suggestions-btn js-suggestion" data-target="input-2">Санкционные товары</button>
-                        </div>
-                        <div class="request__form-row-40 request__form-row-columns">
-                            <div>
-                                <label>
-                                    <div class="input-title">Объем<span class="input-title__required">*</span></div>
-                                    <input type="text" class="input">
-                                </label>
+                        <div class="request__form-steps js-form-steps">
+                            <div class="request__form-step js-form-step">
+                                <div class="request__form-row">
+                                    <label>
+                                        <div class="input-title">Тип груза<span class="input-title__required">*</span></div>
+                                        <input type="text" name="type" class="input" id="input-2">
+                                    </label>
+                                </div>
+                                <div class="request__form-row-40 request__form-suggestions">
+                                    <span>Например:</span>
+                                    <button type="button" class="request__form-suggestions-btn js-suggestion" data-target="input-2">Электроника</button>
+                                    <button type="button" class="request__form-suggestions-btn js-suggestion" data-target="input-2">Запчасти</button>
+                                    <button type="button" class="request__form-suggestions-btn js-suggestion" data-target="input-2">Мебель</button>
+                                    <button type="button" class="request__form-suggestions-btn js-suggestion" data-target="input-2">Санкционные товары</button>
+                                </div>
+                                <div class="request__form-row-40 request__form-row-columns">
+                                    <div>
+                                        <label>
+                                            <div class="input-title">Объем<span class="input-title__required">*</span></div>
+                                            <input type="text" name="amount" class="input">
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <div class="input-title">Вес, кг<span class="input-title__required">*</span></div>
+                                            <input type="text" name="weight" class="input">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="request__form-row">
+                                    <label>
+                                        <div class="input-title">Регионы</div>
+                                        <select name="country" class="select">
+                                            <option value=""></option>
+                                            <option value="Азия">Азия</option>
+                                            <option value="Ближний Восток">Ближний Восток</option>
+                                            <option value="Северная Америка">Северная Америка</option>
+                                            <option value="Южная Америка">Южная Америка</option>
+                                            <option value="Африка">Африка</option>
+                                            <option value="Австралия">Австралия</option>
+                                        </select>
+                                    </label>
+                                </div>
                             </div>
-                            <div>
-                                <label>
-                                    <div class="input-title">Вес, кг<span class="input-title__required">*</span></div>
-                                    <input type="text" class="input">
-                                </label>
+                            <div class="request__form-step js-form-step">
+                                <div class="request__form-row-40">
+                                    <label>
+                                        <div class="input-title">Имя</div>
+                                        <input type="text" name="name" class="input">
+                                    </label>
+                                </div>
+                                <div class="request__form-row-40">
+                                    <label>
+                                        <div class="input-title">Телефон<span class="input-title__required">*</span></div>
+                                        <input type="text" name="phone" class="input">
+                                    </label>
+                                </div>
+                                <div class="request__form-hint">Отправляя данную форму вы соглашаетесь с <button type="button" class="js-popup-show" data-target="popup-policy">политикой конфиденциальности</button></div>
                             </div>
                         </div>
-                        <div class="request__form-row">
-                            <label>
-                                <div class="input-title">Регионы</div>
-                                <select name="" class="select">
-                                    <option value=""></option>
-                                    <option value="">Азия</option>
-                                    <option value="">Ближний Восток</option>
-                                    <option value="">Северная Америка</option>
-                                    <option value="">Южная Америка</option>
-                                    <option value="">Африка</option>
-                                    <option value="">Австралия</option>
-                                </select>
-                            </label>
-                        </div>
-                    </div>
+                    </form>
                     <div class="request__form-controls-wrapper">
                         <div class="request__form-controls">
-                            <button class="btn"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
-                            <label class="btn-file"><input type="file"><svg class="icon-svg"><use href="#icon-file"></use></svg></label>
+                            <button type="button" class="btn js-submit"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
+                            <label class="btn-file">
+                                <input type="file" name="attachment" class="js-file-btn">
+                                <span class="btn-file__name">123fkljfwirlewrljk23</span>
+                                <svg class="icon-svg btn-file__upload"><use href="#icon-file"></use></svg>
+                                <svg class="icon-svg btn-file__cancel"><use href="#icon-cross"></use></svg>
+                            </label>
                         </div>
-                        <div class="request__form-step"><b>01</b> / 02</div>
+                        <div class="request__form-current-step-text"><b class="js-current-step">01</b> / 02</div>
                     </div>
                 </div>
                 <div class="request__image">
                     <picture>
                         <source srcset="./images/request-2-tablet.jpg, ./images/request-2-tablet@2x.jpg 1.5x" media="(max-width: 1279px)" />
                         <source srcset="./images/request-2@2x.jpg 1.5x" />
-                        <img src="./images/request-2.jpg" class="request__image-picture">
+                        <img src="./images/request-2.jpg" class="request__image-picture" loading="lazy">
                     </picture>
                 </div>
             </div>
@@ -606,29 +664,37 @@
 
     <div class="popup" id="popup-contact-form">
         <div class="popup-side"> 
-            <div class="title">Связаться с нами</div>
-            <div class="form-row">
-                <label>
-                    <div class="input-title">Имя</div>
-                    <input type="text" class="input">
-                </label>
+            <div class="request__form request__form-success" id="form-3-success" style="display: none;">
+                <div class="success success--green"></div>
+                <div class="title">Сообщение отправлено</div>
+                <div>В ближайшее время мы свяжемся с вами.</div>
             </div>
-            <div class="form-row">
-                <label>
-                    <div class="input-title">Телефон<span class="input-title__required">*</span></div>
-                    <input type="text" class="input">
-                </label>
-            </div>
-            <div class="form-row">
-                <label>
-                    <div class="input-title">Сообщение<span class="input-title__required">*</span></div>
-                    <textarea class="input" rows="5"></textarea>
-                </label>
-            </div>
-            <div class="contact-form__hint">Отправляя данную форму вы соглашаетесь с <button class="js-popup-show" data-target="popup-policy">политикой конфиденциальности</button></div>
-            <div class="contact-form__send">
-                <button class="btn"><span>Отправить</span><span class="btn__arrow"></span></button>
-            </div>
+            <form action="mailer.php" method="post" id="form-3">
+                <input type="hidden" name="subject" value="Контактная форма">
+                <div class="title">Связаться с нами</div>
+                <div class="form-row">
+                    <label>
+                        <div class="input-title">Имя</div>
+                        <input type="text" name="name" class="input">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <div class="input-title">Телефон<span class="input-title__required">*</span></div>
+                        <input type="text" name="phone" class="input">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <div class="input-title">Сообщение<span class="input-title__required">*</span></div>
+                        <textarea class="input" name="message" rows="5"></textarea>
+                    </label>
+                </div>
+                <div class="contact-form__hint">Отправляя данную форму вы соглашаетесь с <button type="button" class="js-popup-show" data-target="popup-policy">политикой конфиденциальности</button></div>
+                <div class="contact-form__send">
+                    <button type="button" class="btn js-submit"><span>Отправить</span><span class="btn__arrow"></span></button>
+                </div>
+            </form>
         </div>
         <div class="popup__side-close"><button class="popup__close-btn js-popup-hide"><svg class="icon-svg"><use href="#icon-cross"></use></svg></button></div>
     </div>

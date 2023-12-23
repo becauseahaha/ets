@@ -34,7 +34,7 @@
                 <button class="header__nav-item js-scroll-to" data-target="block-request">Заявка</button>
                 <button class="header__nav-item js-scroll-to" data-target="block-contacts">Контакты</button>
             </div>
-            <div class="contacts__cards">
+            <div class="contacts__cards contacts__cards--menu">
                 <div class="contacts__card contacts-card">
                     <div>
                         <div class="contacts-card__city">Турция</div>
@@ -57,6 +57,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="header__contacts-mobile">
+            <a href="tel:+74952833912" class="header__contacts-phone link">+7 495 283-39-12</a>
+            <button class="header__contacts-popup link js-popup-show" data-target="popup-contact-form">Связаться с нами</button>
         </div>
     </header>
     <main>
@@ -93,11 +97,27 @@
                                 </div>
                                 <div class="card__body">Минимальный вес для заказа перевозки груза</div>
                             </div>
-                            <button class="btn js-scroll-to" data-target="block-request"><span>Оставить заявку</span><span class="btn__arrow"></span></button>
+                            <button class="btn js-scroll-to" data-target="block-types"><span>Оставить заявку</span><span class="btn__arrow"></span></button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="main__request main__request-mobile container">
+            <div class="card">
+                <div class="card__header">
+                    14 <small>дней</small>
+                </div>
+                <div class="card__body">Срок доставки «в среднем» по классическому маршруту <button><img src="./images/icon-question.svg"></button></div>
+            </div>
+            <div class="card">
+                <div class="card__header">
+                    5 <small>кг</small>
+                </div>
+                <div class="card__body">Минимальный вес для заказа перевозки груза</div>
+            </div>
+            <button class="btn js-scroll-to" data-target="block-types"><span>Оставить заявку</span><span class="btn__arrow"></span></button>
         </div>
 
         <div class="container" id="block-types">
@@ -120,23 +140,28 @@
                         </div>
                         <div class="request__form-row">
                             <label>
-                                <div class="input-title">Страна забора</div>
+                                <div class="input-title">Регионы</div>
                                 <select name="" class="select">
                                     <option value=""></option>
-                                    <option value="">Китай</option>
-                                    <option value="">Китай</option>
-                                    <option value="">Китай</option>
-                                    <option value="">Китай</option>
-                                    <option value="">Китай</option>
+                                    <option value="">Азия</option>
+                                    <option value="">Ближний Восток</option>
+                                    <option value="">Северная Америка</option>
+                                    <option value="">Южная Америка</option>
+                                    <option value="">Африка</option>
+                                    <option value="">Австралия</option>
                                 </select>
                             </label>
                         </div>
                     </div>
-                    <button class="btn"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
+                    <div class="request__form-controls-wrapper">
+                        <div class="request__form-controls">
+                            <button class="btn"><span>К следующему шагу</span><span class="btn__arrow"></span></button>
+                        </div>
+                    </div>
                 </div>
                 <div class="request__image">
                     <picture>
-                        <source srcset="./images/request-1-tablet.jpg, ./images/request-1-tablet@2x.jpg 1.5x" media="(min-width: 481px) & (max-width: 1023px)" />
+                        <source srcset="./images/request-1-tablet.jpg, ./images/request-1-tablet@2x.jpg 1.5x" media="(max-width: 1279px)" />
                         <source srcset="./images/request-1@2x.jpg 1.5x" />
                         <img src="./images/request-1.jpg" class="request__image-picture">
                     </picture>
@@ -251,7 +276,10 @@
                     <img src="./images/map-asia.png" class="map__picture-country js-map-layer" id="map-asia">
                     <img src="./images/map-australia.png" class="map__picture-country js-map-layer" id="map-australia">
                     <img src="./images/map-mid-east.png" class="map__picture-country js-map-layer" id="map-mid-east">
-                    <img src="./images/map-countries.png" class="map__picture-countries-titles">
+                    <picture>
+                        <source srcset="./images/map-countries-tablet.png" media="(max-width: 1279px)" />
+                        <img src="./images/map-countries.png" class="map__picture-countries-titles">
+                    </picture>
                     <img src="./images/map.png" class="map__picture">
                     <!-- <div class="map__globe-country-text map__globe-country-na">Северная америка</div>
                     <div class="map__globe-country-text map__globe-country-sa">Южная америка</div>
@@ -386,6 +414,12 @@
                             <button class="delivery__vehicle-list-btn js-vehicle-btn" data-target="vehicle-truck">Автотранспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
                             <button class="delivery__vehicle-list-btn js-vehicle-btn" data-target="vehicle-ship">Морской транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
                         </div>
+                        <div class="delivery__vehicle-list delivery__vehicle-list-mobile">
+                            <button class="delivery__vehicle-list-btn js-vehicle-btn" data-target="vehicle-train">Ж/Д транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                            <button class="delivery__vehicle-list-btn js-vehicle-btn is-active" data-target="vehicle-plane">Авиа-транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                            <button class="delivery__vehicle-list-btn js-vehicle-btn" data-target="vehicle-truck">Авто-транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                            <button class="delivery__vehicle-list-btn js-vehicle-btn" data-target="vehicle-ship">Морской транспорт<div class="delivery__vehicle-list-btn-marker"></div></button>
+                        </div>
                         <div class="delivery__vehicle-image">
                             <img src="./images/vehicle-train.png" srcset="./images/vehicle-train@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer" id="vehicle-train">
                             <img src="./images/vehicle-plane.png" srcset="./images/vehicle-plane@2x.png 1.5x" class="delivery__vehicle-image-picture js-vehicle-layer is-active" id="vehicle-plane">
@@ -465,14 +499,15 @@
                         </div>
                         <div class="request__form-row">
                             <label>
-                                <div class="input-title">Страна забора</div>
+                                <div class="input-title">Регионы</div>
                                 <select name="" class="select">
                                     <option value=""></option>
-                                    <option value="">Китай</option>
-                                    <option value="">Китай</option>
-                                    <option value="">Китай</option>
-                                    <option value="">Китай</option>
-                                    <option value="">Китай</option>
+                                    <option value="">Азия</option>
+                                    <option value="">Ближний Восток</option>
+                                    <option value="">Северная Америка</option>
+                                    <option value="">Южная Америка</option>
+                                    <option value="">Африка</option>
+                                    <option value="">Австралия</option>
                                 </select>
                             </label>
                         </div>
@@ -487,7 +522,7 @@
                 </div>
                 <div class="request__image">
                     <picture>
-                        <source srcset="./images/request-2-tablet.jpg, ./images/request-2-tablet@2x.jpg 1.5x" media="(min-width: 481px) & (max-width: 1023px)" />
+                        <source srcset="./images/request-2-tablet.jpg, ./images/request-2-tablet@2x.jpg 1.5x" media="(max-width: 1279px)" />
                         <source srcset="./images/request-2@2x.jpg 1.5x" />
                         <img src="./images/request-2.jpg" class="request__image-picture">
                     </picture>
@@ -499,7 +534,7 @@
             <div class="container">
                 <div class="contacts__title">Контакты</div>
                 <div class="contacts__cards">
-                    <div class="contacts__card contacts-card">
+                    <div class="contacts__card contacts-card js-contacts-card">
                         <div>
                             <div class="contacts-card__city">Турция</div>
                             <div class="contacts-card__text">OBA MAH. 225 SK. SUMMER PARK D BLOK NO: 8 D İÇ KAPI NO: 22 ALANYA/ ANTALYA</div>
@@ -514,7 +549,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="contacts__card contacts-card">
+                    <div class="contacts__card contacts-card js-contacts-card">
                         <div>
                             <div class="contacts-card__city">ОАЭ</div>
                             <div class="contacts-card__text">P6-ELOB OFFICE E2-113G-30б, HAMRIYAH FREE ZONE SHARJAH, UAE</div>
@@ -531,7 +566,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="contacts__card contacts-card">
+                    <div class="contacts__card contacts-card js-contacts-card">
                         <div>
                             <div class="contacts-card__city">Россия</div>
                             <div class="contacts-card__text">г. Москва, Багратионовский проезд, 7/20В</div>
@@ -694,6 +729,12 @@
             </g>
             <g id="icon-file" fill="currentColor">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M3 12C3 8.68629 5.78961 6 9.23077 6H16.6154C19.0369 6 21 7.89035 21 10.2222C21 12.5541 19.0369 14.4444 16.6154 14.4444H9.0989C7.69695 14.4444 6.56044 13.35 6.56044 12C6.56044 10.65 7.69695 9.55556 9.0989 9.55556H16.3516C16.734 9.55556 17.044 9.85403 17.044 10.2222C17.044 10.5904 16.734 10.8889 16.3516 10.8889H9.0989C8.46165 10.8889 7.94506 11.3864 7.94506 12C7.94506 12.6136 8.46165 13.1111 9.0989 13.1111H16.6154C18.2722 13.1111 19.6154 11.8177 19.6154 10.2222C19.6154 8.62673 18.2722 7.33333 16.6154 7.33333H9.23077C6.55431 7.33333 4.38462 9.42267 4.38462 12C4.38462 14.5773 6.55431 16.6667 9.23077 16.6667H16.3516C16.734 16.6667 17.044 16.9651 17.044 17.3333C17.044 17.7015 16.734 18 16.3516 18H9.23077C5.78961 18 3 15.3137 3 12Z" />
+            </g>
+            <g id="icon-plus" fill="currentColor">
+                <path d="M19 11.5H13V5.5C13 5.23478 12.8946 4.98043 12.7071 4.79289C12.5196 4.60536 12.2652 4.5 12 4.5C11.7348 4.5 11.4804 4.60536 11.2929 4.79289C11.1054 4.98043 11 5.23478 11 5.5V11.5H5C4.73478 11.5 4.48043 11.6054 4.29289 11.7929C4.10536 11.9804 4 12.2348 4 12.5C4 12.7652 4.10536 13.0196 4.29289 13.2071C4.48043 13.3946 4.73478 13.5 5 13.5H11V19.5C11 19.7652 11.1054 20.0196 11.2929 20.2071C11.4804 20.3946 11.7348 20.5 12 20.5C12.2652 20.5 12.5196 20.3946 12.7071 20.2071C12.8946 20.0196 13 19.7652 13 19.5V13.5H19C19.2652 13.5 19.5196 13.3946 19.7071 13.2071C19.8946 13.0196 20 12.7652 20 12.5C20 12.2348 19.8946 11.9804 19.7071 11.7929C19.5196 11.6054 19.2652 11.5 19 11.5Z" />
+            </g>
+            <g id="icon-minus" fill="currentColor">
+                <path d="M13 11.5H19C19.2652 11.5 19.5196 11.6054 19.7071 11.7929C19.8946 11.9804 20 12.2348 20 12.5C20 12.7652 19.8946 13.0196 19.7071 13.2071C19.5196 13.3946 19.2652 13.5 19 13.5H13H11H5C4.73478 13.5 4.48043 13.3946 4.29289 13.2071C4.10536 13.0196 4 12.7652 4 12.5C4 12.2348 4.10536 11.9804 4.29289 11.7929C4.48043 11.6054 4.73478 11.5 5 11.5H11H13Z" />
             </g>
         </defs>
     </svg>

@@ -192,6 +192,18 @@ const suggestions = () => {
     })
 }
 
+const contactsCards = () => {
+    if (document.body.clientWidth > 767) return;
+    document.querySelectorAll('.js-contacts-card .contacts-card__city').forEach((el) => {
+        el.addEventListener('click', () => {
+            document.querySelectorAll('.js-contacts-card').forEach((el) => {
+                el.classList.remove('is-active');
+            })
+            el.closest('.js-contacts-card').classList.toggle('is-active');
+        })
+    })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     map();
@@ -200,6 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fixedHeader();
     clickToScroll();
     suggestions();
+    contactsCards();
 
     document.querySelectorAll('.js-open-menu').forEach((el) => {
         el.addEventListener('click', toggleMenu);

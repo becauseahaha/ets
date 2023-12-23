@@ -242,9 +242,11 @@ main
     display: flex
     flex-direction: column
     transition: 0.3s all
+    padding-top: 32px
+    &__contacts-mobile
+        display: none
     &__header
-        height: 80px
-        border-bottom: 1px solid rgba(255, 255, 255, 0.30)
+        height: 60px
         flex-shrink: 0
         .container
             display: flex
@@ -252,7 +254,7 @@ main
             align-items: stretch
     &__body
         display: none
-        padding-top: 48px
+        padding-top: 36px
         padding-bottom: 48px
         flex-grow: 1
         flex-direction: column
@@ -284,6 +286,8 @@ main
     &__contacts
         display: flex
         align-items: center
+        margin-top: 6px
+        margin-bottom: 6px
         &-border
             display: inline-block
             width: 1px
@@ -314,7 +318,9 @@ main
         background-color: #fff
         color: var(--black)
         z-index: 3
-        .header__header,
+        padding-top: 16px
+        padding-bottom: 16px
+        .header__header
         .header__contacts-border
             border-color: #E6E6E6
         .header__logo-picture
@@ -324,12 +330,13 @@ main
     position: relative
     overflow: hidden
     background-color: var(--green)
-    width: 80px
-    height: 80px
+    width: 60px
+    height: 60px
     display: flex
     justify-content: center
     align-items: center
-    right: -48px
+    border-radius: 8px
+    // right: -48px
     &::after
         background: var(--green-dark)
         content: ''
@@ -415,6 +422,8 @@ main
         z-index: 1
         padding-top: 265px
         padding-bottom: 48px
+        > .container 
+            height: 100%
     &__title
         font-size: 4.5rem
         line-height: 1.05
@@ -448,6 +457,8 @@ main
         grid-template-columns: 1fr 1fr
         .btn
             grid-column: 1/3
+    &__request-mobile
+        display: none
 
 .request
     background-color: var(--green)
@@ -456,7 +467,7 @@ main
     grid-template-columns: 1fr 1fr
     &__form
         padding: 48px
-        // border-right: 1px solid rgba(255, 255, 255, 0.30)
+        border-right: 1px solid rgba(255, 255, 255, 0.30)
         display: flex
         flex-direction: column
         justify-content: space-between
@@ -469,6 +480,9 @@ main
         &-controls
             display: flex
             gap: 12px
+            width: 100%
+            .btn
+                width: 100%
         &-row
             margin-bottom: 16px
             &-columns
@@ -497,6 +511,10 @@ main
         .request__form
             &-title
                 margin-bottom: 20px
+            &-controls
+                width: auto
+                .btn
+                    width: auto
 
     &__image
         padding: 48px
@@ -504,7 +522,7 @@ main
             width: 100%
             border-radius: 8px
     &__slider
-        // border-top: 1px solid rgba(255, 255, 255, 0.30)
+        border-top: 1px solid rgba(255, 255, 255, 0.30)
         position: relative
         padding: 68px 0 48px
         grid-column: 1/3
@@ -729,6 +747,8 @@ main
                     .delivery__vehicle-list-btn
                         &-marker
                             background-color: var(--green)
+        &-list-mobile
+            display: none
 
 .contacts
     margin-bottom: 92px
@@ -743,7 +763,7 @@ main
         grid-template-columns: 1fr 1fr 1fr
         gap: 24px
     .btn
-        padding: 11px 16px
+        padding: 10px 16px
         &::before
             background-color: transparent
 
@@ -811,6 +831,8 @@ main
         letter-spacing: 0.175rem
         text-transform: uppercase
         margin-bottom: 4px
+        opacity: 0.7
+        font-weight: bold
     &__title
         font-size: 3.75rem
         font-weight: bold
@@ -842,6 +864,7 @@ main
         display: flex
         gap: 32px
         overflow-x: auto
+        overflow-y: hidden
         scroll-snap-type: x mandatory
     &__btn-country
         font-size: 2rem

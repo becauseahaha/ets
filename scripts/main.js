@@ -195,10 +195,10 @@ const suggestions = () => {
 const contactsCards = () => {
     if (window.innerWidth > 767) return;
     document.querySelectorAll('.js-contacts-card .contacts-card__city').forEach((el) => {
-        el.addEventListener('click', () => {
-            document.querySelectorAll('.js-contacts-card').forEach((el) => {
-                el.classList.remove('is-active');
-            })
+        el.addEventListener('click', function() {
+            // document.querySelectorAll('.js-contacts-card').forEach((el) => {
+            //     el.classList.remove('is-active');
+            // })
             el.closest('.js-contacts-card').classList.toggle('is-active');
         })
     })

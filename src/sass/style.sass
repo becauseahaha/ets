@@ -161,7 +161,6 @@ main
     &__cancel
         display: none
         position: relative
-        top: 3px
     input[type="file"]
         position: absolute
         left: -999px
@@ -897,6 +896,7 @@ main
         gap: 24px
     .btn
         padding: 10px 16px
+        background-color: transparent
         &::before
             background-color: transparent
 
@@ -946,9 +946,11 @@ main
                     transform: scale(1.08)
 
 .about
+    display: flex
+    flex-direction: column
     position: relative
     min-height: calc(100vh - 92px)
-    // min-height: 768px
+    height: auto
     background: no-repeat center center/cover
     background-image: url("./../images/about.jpg")
     background-image: -webkit-image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg"))
@@ -957,9 +959,10 @@ main
     padding: 48px 0
     .container
         height: 100%
+        display: flex
+        flex-grow: 1
     &__body
         width: 50%
-        height: 100%
         display: flex
         justify-content: space-between
         flex-direction: column

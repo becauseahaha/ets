@@ -300,6 +300,11 @@ main
     padding-top: 32px
     &__contacts-mobile
         display: none
+    &__contacts-tg
+        width: 32px
+        height: 32px
+        &:hover
+            color: var(--green-dark)
     &__header
         height: 60px
         flex-shrink: 0
@@ -841,26 +846,32 @@ main
                 position: relative
                 font-size: 1rem
                 text-align: right
+                transition: all 0.1s
+                padding-right: 20px
+                // text-align: center
                 &:first-child,
                 &:last-child
                     right: -41px
                 &-marker
+                    position: absolute
+                    right: 0
+                    top: 7px
                     box-shadow: 0 0 0 4px rgba(100, 187, 155, 0.15)
                     display: inline-block
-                    margin-left: 12px
                     width: 8px
                     height: 8px
                     border-radius: 100%
                     background-color: var(--black)
                 &.is-active
-                    right: -2px
                     color: var(--green)
                     font-weight: bold
                     &:first-child,
                     &:last-child
-                        right: -44px
+                        // right: -44px
                     .delivery__vehicle-list-btn
                         &-marker
+                            top: 5px
+                            right: -2px
                             background-color: var(--green)
                             width: 12px
                             height: 12px
@@ -936,7 +947,7 @@ main
 
 .about
     position: relative
-    height: calc(100vh - 92px)
+    min-height: calc(100vh - 92px)
     // min-height: 768px
     background: no-repeat center center/cover
     background-image: url("./../images/about.jpg")
@@ -966,6 +977,7 @@ main
         margin-bottom: 20px
     &__text
         font-size: 1.3125rem
+        max-width: 35ch
     &__info-box
         min-height: 50%
         margin-top: 48px

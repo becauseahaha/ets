@@ -443,6 +443,14 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('click', hidePopup.bind(el));
     })
 
+    document.querySelectorAll('.popup').forEach((el) => {
+        el.addEventListener('click', function(e) {
+            if (e.target == el) {
+                hidePopup(e.target.id)
+            }
+        });
+    })
+
     document.querySelectorAll('.js-popup-show').forEach((el) => {
         el.addEventListener('click', (e) => {
             e.preventDefault();

@@ -23,6 +23,10 @@
                 <div class="header__contacts">
                     <a href="tel:+74952833912" class="header__contacts-phone link">+7 495 283-39-12</a>
                     <span class="header__contacts-border"></span>
+                    <a href="https://t.me/ETS_log" target="_blank">
+                        <svg class="header__contacts-tg" viewBox="0 0 1000 1000"><use href="#icon-tg"></use></svg>
+                    </a>
+                    <span class="header__contacts-border"></span>
                     <button class="header__contacts-popup link js-popup-show" data-target="popup-contact-form">Связаться с нами</button>
                 </div>
                 <div class="header__burger">
@@ -66,6 +70,9 @@
         </div>
         <div class="header__contacts-mobile">
             <a href="tel:+74952833912" class="header__contacts-phone link">+7 495 283-39-12</a>
+            <a href="https://t.me/ETS_log" target="_blank" class="header__contacts-tg-link">
+                <svg class="header__contacts-tg" viewBox="0 0 1000 1000"><use href="#icon-tg"></use></svg>
+            </a>
             <button class="header__contacts-popup link js-popup-show" data-target="popup-contact-form">Связаться с нами</button>
         </div>
     </header>
@@ -117,7 +124,7 @@
                 <div class="card__header">
                     14 <small>дней</small>
                 </div>
-                <div class="card__body">Срок доставки «в среднем» по классическому маршруту <button><img src="./images/icon-question.svg"></button></div>
+                <div class="card__body">Срок доставки «в среднем» по классическому <nowrap>маршруту <button class="js-popup-show" data-target="popup-contact-form"><img src="./images/icon-question.svg"></button></nowrap></div>
             </div>
             <div class="card">
                 <div class="card__header">
@@ -292,7 +299,6 @@
         </div>
 
         <div class="map" id="block-map">
-            <div class="sup-horizontal sup-horizontal-map"></div>
             <div class="container">
                 <div class="map__hint">Доставляем со всех частей света:</div>
                 <div class="map__countries" id="countries-slider">
@@ -418,29 +424,33 @@
                     <div class="delivery__text">Международные перевозки грузов включают в себя ряд особенностей, которые задают стандарты безопасности транспортировки грузов.</div>
                     <div class="delivery__hint">Некторые из ключевых аспектов, которые мы учитываем при перевозке:</div>
                     <div class="delivery__care-list">
-                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Правила и нормативы" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Правила и нормативы" data-body="Убеждаемся, что груз соответствует всем международным стандартам и требованиям безопасности">
                             <span>Правила и нормативы</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
-                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Упаковка груза" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Упаковка груза" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки">
                             <span>Упаковка груза</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
                         <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="                            <span>Страхование</span>
-                            " data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
+                            " data-body="Предлагаем широкий выбор вариантов страхования груза">
                             <span>Страхование</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
-                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Безопасность на пути следования" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Безопасность на пути следования" data-body="Учитываем условия транспортировочных маршрутов и выбираем оптимальные пути">
                             <span>Безопасность на пути следования</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
-                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Документация" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Документация" data-body="Всегда поддерживаем правильную документацию согласно таможенному законодательству">
                             <span>Документация</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
-                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Отслеживание груза" data-body="Учитываем, что правильная упаковка груза играет ключевую роль в его безопасности во время транспортировки.">
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Отслеживание груза" data-body="Используем технологии отслеживания грузов для удобства контроля этапа доставки груза">
                             <span>Отслеживание груза</span>
+                            <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
+                        </button>
+                        <button class="delivery__care-item js-popup-show" data-target="popup-care-details" data-title="Мониторинг" data-body="Осуществляем мониторинг безопасности груза во время транспортировки на пути его следования">
+                            <span>Мониторинг</span>
                             <div class="delivery__care-item-icon"><svg><use href="#icon-plus"></use></svg></div>
                         </button>
                     </div>
@@ -817,6 +827,9 @@
             </g>
             <g id="icon-minus" fill="currentColor">
                 <path d="M13 11.5H19C19.2652 11.5 19.5196 11.6054 19.7071 11.7929C19.8946 11.9804 20 12.2348 20 12.5C20 12.7652 19.8946 13.0196 19.7071 13.2071C19.5196 13.3946 19.2652 13.5 19 13.5H13H11H5C4.73478 13.5 4.48043 13.3946 4.29289 13.2071C4.10536 13.0196 4 12.7652 4 12.5C4 12.2348 4.10536 11.9804 4.29289 11.7929C4.48043 11.6054 4.73478 11.5 5 11.5H11H13Z" />
+            </g>
+            <g id="icon-tg" fill="currentColor">
+                <path d="M226.328419,494.722069 C372.088573,431.216685 469.284839,389.350049 517.917216,369.122161 C656.772535,311.36743 685.625481,301.334815 704.431427,301.003532 C708.567621,300.93067 717.815839,301.955743 723.806446,306.816707 C728.864797,310.92121 730.256552,316.46581 730.922551,320.357329 C731.588551,324.248848 732.417879,333.113828 731.758626,340.040666 C724.234007,419.102486 691.675104,610.964674 675.110982,699.515267 C668.10208,736.984342 654.301336,749.547532 640.940618,750.777006 C611.904684,753.448938 589.856115,731.588035 561.733393,713.153237 C517.726886,684.306416 492.866009,666.349181 450.150074,638.200013 C400.78442,605.66878 432.786119,587.789048 460.919462,558.568563 C468.282091,550.921423 596.21508,434.556479 598.691227,424.000355 C599.00091,422.680135 599.288312,417.758981 596.36474,415.160431 C593.441168,412.561881 589.126229,413.450484 586.012448,414.157198 C581.598758,415.158943 511.297793,461.625274 375.109553,553.556189 C355.154858,567.258623 337.080515,573.934908 320.886524,573.585046 C303.033948,573.199351 268.692754,563.490928 243.163606,555.192408 C211.851067,545.013936 186.964484,539.632504 189.131547,522.346309 C190.260287,513.342589 202.659244,504.134509 226.328419,494.722069 Z""></path>
             </g>
         </defs>
     </svg>

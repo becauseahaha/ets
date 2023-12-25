@@ -191,14 +191,18 @@
             padding-bottom: 0
         &__contacts-mobile
             display: none
-            grid-template-columns: 1fr 1fr
+            grid-template-columns: 1fr auto 1fr
             text-align: center
             border-top: 1px solid #E6E6E6
-            .header__contacts-phone
+            .header__contacts-phone,
+            .header__contacts-tg-link
                 border-right: 1px solid #E6E6E6
             .header__contacts-popup,
             .header__contacts-phone
                 padding: 27px 0
+            .header__contacts-tg-link
+                height: 100%
+                padding: 20px 12px 0
         &__logo
             left: 16px
         &__logo-picture
@@ -235,21 +239,33 @@
             font-size: 0.875rem
             text-align: center
         &__request-mobile
-            display: grid
+            display: flex
+            gap: 12px
+            flex-direction: column
             background-color: #F6F6F6
-            width: auto
-            min-width: unset
-            overflow: auto
-            scroll-snap-type: x mandatory
-            scroll-padding: 16px
             margin-left: 16px
             margin-right: 16px
-            height: 270px
+            min-width: unset
+            width: auto
             .card
-                width: 255px
-                scroll-snap-align: start
+                width: auto
             .btn
-                max-width: calc( 100vw - 64px )
+                width: 100%
+
+    .card
+        flex-direction: row
+        align-items: center
+        gap: 12px
+        &__header
+            width: 50px
+            flex-shrink: 0
+            text-align: center
+            font-size: 3rem
+            margin-bottom: 0
+            small
+                display: block
+        &__body
+            font-size: 0.875rem
 
     .request
         &__form,
@@ -353,7 +369,7 @@
             bottom: 0
             left: 50%
             transform: translateX(-50%)
-            gap: 00px
+            gap: 0px
             right: unset
             top: unset
             // width: 328px
@@ -363,27 +379,28 @@
                 position: relative
                 white-space: normal
                 text-align: center
-                width: 82px
+                padding-right: 0
+                width: 85px
+                font-size: 0.875rem
                 &:first-child,
                 &:last-child
                     right: unset
-                    top: -38px
+                    top: -40px
                 &:nth-child(2)
                     margin-right: 10px
                 &:nth-child(3)
                     margin-left: 10px
                 &.is-active
-                    top: -2px
-                    &:first-child,
-                    &:last-child
-                        top: -39px
+                    right: unset
+                    .delivery__vehicle-list-btn-marker
+                        top: -23px
             .delivery__vehicle-list-btn-marker
                 position: absolute
-                top: -18px
+                top: -21px
                 left: 50%
                 transform: translateX(-50%)
                 margin-left: 0
-
+                transition: all 0.1s
 
 
     .contacts
@@ -431,14 +448,11 @@
         &__text
             font-size: 1rem
         &__info-box
+            width: auto
             max-width: 100%
-            height: 230px
             min-height: unset
-            overflow-x: auto
-            overflow-y: hidden
-            grid-template-columns: 255px 255px 255px
-            grid-template-rows: auto
-            scroll-snap-type: x mandatory
+            grid-template-columns: auto
+            grid-template-rows: 1fr 1fr 1fr
             scroll-padding: 16px
             .card
                 scroll-snap-align: start

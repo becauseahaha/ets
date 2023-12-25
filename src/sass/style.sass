@@ -459,12 +459,15 @@ main
         &.is-next
             z-index: -1
     &__bg-1
+        background-image: url("./../images/main-1.jpg")
         background-image: -webkit-image-set(url("./../images/main-1.webp") type("image/webp"), url("./../images/main-1.jpg") type("image/jpeg"))
         background-image: image-set(url("./../images/main-1.webp") type("image/webp"), url("./../images/main-1.jpg") type("image/jpeg"))
     &__bg-2
+        background-image: url("./../images/main-2.jpg")
         background-image: -webkit-image-set(url("./../images/main-2.webp") type("image/webp"), url("./../images/main-2.jpg") type("image/jpeg"))
         background-image: image-set(url("./../images/main-2.webp") type("image/webp"), url("./../images/main-2.jpg") type("image/jpeg"))
     &__bg-3
+        background-image: url("./../images/main-3.jpg")
         background-image: -webkit-image-set(url("./../images/main-3.webp") type("image/webp"), url("./../images/main-3.jpg") type("image/jpeg"))
         background-image: image-set(url("./../images/main-3.webp") type("image/webp"), url("./../images/main-3.jpg") type("image/jpeg"))
     &::before
@@ -524,6 +527,7 @@ main
             border-radius: 8px
             background: rgba(255, 255, 255, 0.40)
             backdrop-filter: blur(25px)
+            -webkit-backdrop-filter: blur(25px)
     &__request
         min-width: 550px
         display: grid
@@ -934,7 +938,9 @@ main
     position: relative
     height: calc(100vh - 92px)
     // min-height: 768px
-    background: -webkit-image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg")) no-repeat center center/cover
+    background: no-repeat center center/cover
+    background-image: url("./../images/about.jpg")
+    background-image: -webkit-image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg"))
     background-image: image-set(url("./../images/about.webp") type("image/webp"), url("./../images/about.jpg") type("image/jpeg"))
     color: #fff
     padding: 48px 0

@@ -459,3 +459,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 })
+
+
+/* ----- */
+const menuBtn = document.querySelector('.messenger-btn'), menu = document.querySelector('.messenger-links');
+menuBtn.addEventListener('click', function() {
+    menu.classList.toggle('show')
+});
+document.addEventListener('click', function (e) {
+    if (e.target.closest('.messenger') == null) {
+        menu.classList.remove('show');
+    }
+});
